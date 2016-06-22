@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Migeran MOE"
 title_separator          : "-"
-name                     : "Your Name"
+name                     : "Migeran Ltd."
 description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -97,6 +97,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - _blogposts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -125,6 +126,22 @@ keep_files:
   - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Collections
+collections:
+  blogposts:
+    output: true
+    permalink: /:collection/:path/
+
+defaults:
+  # _portfolio
+  - scope:
+      path: ""
+      type: blogposts
+    values:
+      layout: single
+      author_profile: false
+      share: true
 
 
 # Conversion
