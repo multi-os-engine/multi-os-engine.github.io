@@ -11,14 +11,15 @@ $(document).ready(function(){
   $(".sticky").Stickyfill();
 
   var stickySideBar = function(){
-    var windowWidth = $(window).width();
-    if (windowWidth > 1024) {
+    if (!$(".author__urls-wrapper button").is(":visible")) {
       // fix
       Stickyfill.rebuild();
       Stickyfill.init();
+      $(".author__urls").show();
     } else {
       // unfix
       Stickyfill.stop();
+      $(".author__urls").hide();
     }
   };
 
@@ -43,12 +44,12 @@ $(document).ready(function(){
 
   // Magnific-Popup options
   $(".image-popup").magnificPopup({
-    disableOn: function() {
-      if( $(window).width() < 500 ) {
-        return false;
-      }
-      return true;
-    },
+    // disableOn: function() {
+    //   if( $(window).width() < 500 ) {
+    //     return false;
+    //   }
+    //   return true;
+    // },
     type: 'image',
     tLoading: 'Loading image #%curr%...',
     gallery: {
