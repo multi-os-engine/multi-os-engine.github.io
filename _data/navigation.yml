@@ -1,7 +1,7 @@
 # main links links
 main:
   - title: "Getting Started"
-    url: https://doc.migeran.com/multi-os-engine/3_getting_started/Getting_Started.html
+    url: /start/
 
   - title: "Documentation"
     url: https://doc.migeran.com
@@ -13,7 +13,7 @@ main:
     url: https://www.discourse.org
 
   - title: "Commercial Support"
-    url: https://stage.migeran.com/commercial
+    url: /support/
 
-  - title: "Contribute on GitHub"
-    url: https://github.com
+  - title: "Contribute"
+    url: /contribute/
