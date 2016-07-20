@@ -172,7 +172,7 @@
 
 .greedy-nav {
   position: relative;
-  min-width: 250px;
+  min-width: 50px;
   background: $background-color;
 
   a {
@@ -188,11 +188,11 @@
   }
 
   button {
-    position: absolute;
+    position: relative;
     height: 100%;
-    right: 0;
     padding: 0 0.5rem;
     border: 0;
+    margin-left: 1.5rem;
     outline: none;
     background-color: $primary-color;
     color: #fff;
@@ -207,7 +207,6 @@
       vertical-align: middle;
 
       &:first-child {
-        font-weight: bold;
 
         a {
           margin-left: 0;
