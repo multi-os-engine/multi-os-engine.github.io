@@ -6,13 +6,8 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-<<<<<<< HEAD
 locale                   : "en-US"
 title                    : "Migeran MOE"
-=======
-locale                   : "en"
-title                    : "Site Title"
->>>>>>> gh/master
 title_separator          : "-"
 name                     : "Migeran Ltd."
 description              : "An amazing website."
