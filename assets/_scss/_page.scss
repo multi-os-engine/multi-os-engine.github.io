@@ -46,6 +46,12 @@
 .page__lead {
   font-family: $global-font-family;
   font-size: $type-size-4;
+
+  &__small {
+    font-size: 0.75em;
+    display: inline;
+  }
+
 }
 
 .page__content {

@@ -1,18 +1,15 @@
 # main links links
 main:
-  - title: "Getting Started"
-    url: /start/
+  - title: "Features"
+    url: /features/
 
-  - title: "Documentation"
-    url: https://doc.migeran.com
+  - title: "Docs"
+    url: https://doc.migeran-moe.org
 
   - title: "Blog"
     url: /blog/
 
-  - title: "Forum"
-    url: https://www.discourse.org
-
-  - title: "Commercial Support"
+  - title: "Support"
     url: /support/
 
   - title: "Contribute"
