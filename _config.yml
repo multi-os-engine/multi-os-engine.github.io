@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Migeran MOE"
+title                    : "Multi-OS Engine"
 title_separator          : "-"
-name                     : "Migeran Ltd."
-description              : "An amazing website."
+name                     : "Multi-OS Engine"
+description              : "Create iOS Apps in Java"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :

@@ -2,7 +2,7 @@
 layout: splash
 permalink: /
 date:
-title: Migeran Multi-OS Engine
+title: Multi-OS Engine
 header:
   overlay_color: "#5e616c"
   overlay_image: mm-home-page-feature.jpg
