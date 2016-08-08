@@ -1,16 +1,10 @@
 ---
-title: "Foo Bar Identity"
-excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
-header:
-  image: foo-bar-identity.jpg
-  teaser: foo-bar-identity-th.jpg
-sidebar:
-  - title: "Role"
-    image: http://placehold.it/350x250
-    image_alt: "logo"
-    text: "Designer, Front-End Developer"
-  - title: "Responsibilities"
-    text: "Reuters try PR stupid commenters should isn't a business model"
+title: "Multi-OS Engine Now Open-Source"
+excerpt: "The only full featured Java on iOS solution is now available as an open-source project"
+#header:
+#  image: foo-bar-identity.jpg
+#  teaser: foo-bar-identity-th.jpg
+author_profile: true
 gallery:
   - url: unsplash-gallery-image-1.jpg
     image_path: unsplash-gallery-image-1-th.jpg

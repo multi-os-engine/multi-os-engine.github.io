@@ -4,7 +4,7 @@ main:
     url: /features/
 
   - title: "Docs"
-    url: https://doc.migeran-moe.org
+    url: http://doc.multi-os-engine.org
 
   - title: "Blog"
     url: /blog/
@@ -12,5 +12,8 @@ main:
   - title: "Support"
     url: /support/
 
-  - title: "Contribute"
-    url: /contribute/
+  - title: "Forum"
+    url: https://discuss.multi-os-engine.org
+
+  - title: "GitHub"
+    url: http://github.com/multi-os-engine

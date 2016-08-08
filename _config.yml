@@ -11,7 +11,7 @@ title                    : "Multi-OS Engine"
 title_separator          : "-"
 name                     : "Multi-OS Engine"
 description              : "Create iOS Apps in Java"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : http://multi-os-engine.org # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -63,19 +63,19 @@ google_ad_slot           :
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : "bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
+  name             : "Multi-OS Engine"
+  avatar           : 'moe-logo-200x200.png'
+  bio              : 
+  location         : 
   email            :
-  uri              :
+  uri              : http://multi-os-engine.org
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "multi.os.engine"
   foursquare       :
-  github           :
+  github           : "multi-os-engine"
   google_plus      :
   keybase          :
   instagram        :
@@ -86,7 +86,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : "moeappdev"
   vine             :
   weibo            :
   xing             :
@@ -121,6 +121,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - _src
 keep_files:
   - .git
   - .svn
@@ -131,7 +132,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 collections:
   blogposts:
     output: true
-    permalink: /:collection/:path/
+    permalink: /blog/:path/
 
 defaults:
   # _portfolio
@@ -166,14 +167,14 @@ kramdown:
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+#paginate: 5 # amount of posts to show
+#paginate_path: /page:num/
 timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
 gems:
-  - jekyll-paginate
+#  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -181,7 +182,7 @@ gems:
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
+#  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed

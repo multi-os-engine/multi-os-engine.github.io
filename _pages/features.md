@@ -14,12 +14,12 @@ android_based:
     excerpt: "Develop your app in beautiful, platform-independent Java code, and add native UIs for Android and iOS."
 intro:
   - excerpt: '
-			  [<i class="fa fa-github"></i> Fork](https://github.com/migeran-moe/migeran-moe){: .btn .btn--large .btn--github}&nbsp;
-			  [<i class="fa fa-comments"></i> Discuss](https://discuss.migeran-moe.org){: .btn .btn--large .btn--forum}&nbsp;
-			  [<i class="fa fa-book"></i> Learn](https://doc.migeran-moe.org){: .btn .btn--large .btn--doc}&nbsp; 
-			  [<i class="fa fa-facebook"></i> Share](https://facebook.com/migeranltd){: .btn .btn--large .btn--facebook}&nbsp;
-  			[<i class="fa fa-twitter"></i> Follow](https://twitter.com/migeran){: .btn .btn--large .btn--twitter}&nbsp;
-			  '
+        [<i class="fa fa-github"></i> Fork](https://github.com/multi-os-engine){: .btn .btn--large .btn--github}&nbsp;
+        [<i class="fa fa-comments"></i> Discuss](https://discuss.multi-os-engine.org){: .btn .btn--large .btn--forum}&nbsp;
+        [<i class="fa fa-book"></i> Learn](https://doc.multi-os-engine.org){: .btn .btn--large .btn--doc}&nbsp; 
+        [<i class="fa fa-facebook"></i> Share](https://facebook.com/multi.os.engine){: .btn .btn--large .btn--facebook}&nbsp;
+        [<i class="fa fa-twitter"></i> Follow](https://twitter.com/moeappdev){: .btn .btn--large .btn--twitter}
+        '
 learnmore:
   - excerpt: '[Get Started](/start/){: .btn .btn--large}&nbsp;[Learn More](https://doc.migeran-moe.org/){: .btn .btn--large}'
 ---
