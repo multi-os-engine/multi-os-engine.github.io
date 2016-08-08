@@ -122,6 +122,7 @@
   (facebook, $facebook-color),
   (twitter, $twitter-color),
   (google-plus, $google-plus-color),
+  (github, $github-light-color),
   (linkedin, $linkedin-color);
 
   @each $socialnetwork, $color in $social {
@@ -151,4 +152,48 @@
   &--small {
     font-size: $type-size-7;
   }
+
+  /* Migeran buttons */
+  &--migeran-red {
+    background-color: $migeran-red-color;
+
+    &:hover {
+      background-color: mix(#000, $migeran-red-color, 20%);
+    }  
+  }
+  &--migeran-blue {
+    background-color: $migeran-blue-color;
+
+    &:hover {
+      background-color: mix(#000, $migeran-blue-color, 20%);
+    }  
+  }
+
+
+  /* MOE buttons */
+  &--moe-blue {
+    background-color: $moe-blue-color;
+
+    &:hover {
+      background-color: mix(#000, $moe-blue-color, 20%);
+    }  
+  }
+  
+  &--moe-dark-blue {
+    background-color: $moe-dark-blue-color;
+
+    &:hover {
+      background-color: mix(#000, $moe-dark-blue-color, 20%);
+    }  
+  }
+
+  &--moe-light-blue {
+    background-color: $moe-light-blue-color;
+
+    &:hover {
+      background-color: mix(#000, $moe-light-blue-color, 20%);
+    }  
+  }
+
+
 }

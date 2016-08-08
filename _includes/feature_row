@@ -26,7 +26,7 @@
               {% else %}
                 "{{ f.image_path | prepend: "/images/" | prepend: base_path }}"
               {% endif %}
-            alt="{% if f.alt %}{{ f.alt }}{% endif %}">
+            alt="{% if f.alt %}{{ f.alt }}{% endif %}" {% if f.image_width %} style="width: {{ f.image_width }}" {% endif %}>
           </div>
         {% endif %}
 

@@ -1,11 +1,10 @@
 ---
 layout: splash
-permalink: /features/
+permalink: /support/
 date:
-title: Features
+title: Support
 header:
   overlay_color: "#0071c5"
-#  overlay_image: mm-home-page-feature.jpg
 // excerpt: 'Everything you need'
 features:
   - image_path: features/Overview-Android.png

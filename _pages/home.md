@@ -4,8 +4,9 @@ permalink: /
 date:
 title: Multi-OS Engine
 header:
-  overlay_color: "#5e616c"
-  overlay_image: mm-home-page-feature.jpg
+  #overlay_color: "#0071c5"
+  overlay_color: "#00aeef"  
+  overlay_image: moe-header-image.png
   cta_label: "<i class='fa fa-download'></i> Get Started"
   cta_url: "/start/"
   caption: ''
@@ -27,9 +28,9 @@ github:
   - excerpt: '{::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=mmistakes&repo=minimal-mistakes&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=mmistakes&repo=minimal-mistakes&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 intro:
   - excerpt: '
-			  [<i class="fa fa-github"></i> Fork](https://github.com/multi-os-engine){: .btn .btn--large .btn--github}&nbsp;
-			  [<i class="fa fa-comments"></i> Discuss](https://discuss.multi-os-engine.org){: .btn .btn--large .btn--forum}&nbsp;
-			  [<i class="fa fa-book"></i> Learn](https://doc.multi-os-engine.org){: .btn .btn--large .btn--doc}&nbsp; 
+			  [<i class="fa fa-github"></i> Fork](https://github.com/multi-os-engine){: .btn .btn--large}&nbsp;
+			  [<i class="fa fa-comments"></i> Discuss](https://discuss.multi-os-engine.org){: .btn .btn--large .btn--migeran-blue}&nbsp;
+			  [<i class="fa fa-book"></i> Learn](https://doc.multi-os-engine.org){: .btn .btn--large .btn--migeran-red}&nbsp; 
 			  [<i class="fa fa-facebook"></i> Share](https://facebook.com/multi.os.engine){: .btn .btn--large .btn--facebook}&nbsp;
   			[<i class="fa fa-twitter"></i> Follow](https://twitter.com/moeappdev){: .btn .btn--large .btn--twitter}&nbsp;
 			  '
@@ -39,10 +40,13 @@ learnmore:
               '
 needhelp:
   - title: 'Need Help?'
-  - excerpt: 'Hire the core developers of Multi-OS Engine!<br/> [Migeran](http://www.migeran.com) provides premium support, custom development and training services.<br/><br/>[Contact Us](https://migeran.com/contact/){: .btn .btn--large}'
+    image_path: migeran-logo-200x200.png
+    image_width: 200px
+    excerpt: 'Hire the core developers of Multi-OS Engine!<br/> [Migeran](http://www.migeran.com) provides premium support, custom development and training services.<br/><br/>[Contact Migeran](https://migeran.com/contact/){: .btn .btn--large .btn--migeran-red}'
 analyzer:
   - title: 'Is your Android App Ready for iOS?'
-  - excerpt: 'Find out with the free Migeran Analyzer web service<br /><br />[Start Now](https://analyzer.migeran.com/){: .btn .btn--large}'
+    image_path: features/MigeranAnalyzer.png
+    excerpt: 'Find out with the free Migeran Analyzer web service<br /><br />[Start Now](https://analyzer.migeran.com/){: .btn .btn--large .btn--migeran-blue}'
 ---
 
 {% include feature_row id="intro" type="center" %}

@@ -1,1 +1,2 @@
-{% capture base_path %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
+{% capture base_path %}{{ site.baseurl }}{% endcapture %}
+{% capture full_base_path %}{{ site.url }}{{ site.baseurl }}{% endcapture %}

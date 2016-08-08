@@ -225,12 +225,12 @@
       text-align: center;
 
       .archive__item-teaser {
-        margin: 0 auto;
+        margin: 0 auto 1em auto;
         width: span(5 of 12);
       }
 
       .archive__item-body {
-        margin: 0 auto;
+        margin: 0 auto 0 auto;
         width: span(7 of 12);
       }
     }
