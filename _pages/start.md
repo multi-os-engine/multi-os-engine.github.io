@@ -11,7 +11,7 @@ intro:
   - excerpt: '
         [<i class="fa fa-github"></i> Fork](https://github.com/multi-os-engine){: .btn .btn--large}&nbsp;
         [<i class="fa fa-comments"></i> Discuss](https://discuss.multi-os-engine.org){: .btn .btn--large .btn--migeran-blue}&nbsp;
-        [<i class="fa fa-book"></i> Learn](https://doc.multi-os-engine.org){: .btn .btn--large .btn--migeran-red}&nbsp; 
+        [<i class="fa fa-book"></i> Learn](http://doc.multi-os-engine.org){: .btn .btn--large .btn--migeran-red}&nbsp; 
         [<i class="fa fa-facebook"></i> Share](https://facebook.com/multi.os.engine){: .btn .btn--large .btn--facebook}&nbsp;
         [<i class="fa fa-twitter"></i> Follow](https://twitter.com/moeappdev){: .btn .btn--large .btn--twitter}&nbsp;
         '
