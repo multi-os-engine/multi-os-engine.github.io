@@ -43,6 +43,7 @@
 
 // remove border
 .page__content {
+  text-align: center;
 
   .archive__item-title {
     margin-top: 1em;
@@ -63,7 +64,10 @@
   border-radius: $border-radius;
   overflow: hidden;
   img {
-    width: 100%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 }
 
