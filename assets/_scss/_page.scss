@@ -139,8 +139,14 @@
       padding-left: 1em;
       padding-right: 1em;
 
+      background-size: 0;
+      background-repeat: no-repeat;
+      background-position: right center;
       @include breakpoint($x-large) {
         max-width: $x-large;
+      }
+      @include breakpoint($medium) {
+        background-size: auto;
       }
     }
 
@@ -154,6 +160,9 @@
 
     .page__lead {
       max-width: $medium;
+      @include breakpoint($medium) {
+        margin-right: 280px;
+      }
     }
 
     .page__title {
