@@ -5,54 +5,20 @@ date:
 title: Support
 header:
   overlay_color: "#0071c5"
-// excerpt: 'Everything you need'
-features:
-  - image_path: features/Overview-Android.png
-    image_width: 196px
-    alt: "Android"
-    title: "Based on Android"
-    excerpt: "Based on the Android Runtime for great performance and stability."
-  - image_path: features/Overview-DesignNative.png
-    image_width: 196px
-    alt: "Design Native UIs"
-    title: "Design Native UIs"
-    excerpt: "Use Xcode or the custom MOE Designer to create native UI designs."
-  - image_path: features/Overview-DevelopApps.png
-    image_width: 196px
-    alt: "Choose your Dev OS"
-    title: "Choose your Dev OS"
-    excerpt: "Develop with MOE on Mac or Windows (Linux Coming Soon!)."
-  - image_path: features/Overview-EasyAccess.png
-    image_width: 196px
-    alt: "Access to Native Libraries"
-    title: "Easy Platform Access"
-    excerpt: "Access every iOS API and Library with ease using Nat/J bindings. Create your own bindings automatically with the Nat/J Binding Generator."
-  - image_path: features/Overview-UseJava.png
-    image_width: 196px
-    alt: "Use Java"
-    title: "Share code across platforms"
-    excerpt: "Use Java to write platform-independent code and share it between Android and iOS."
-  - image_path: features/Overview-ChooseYourIDE.png
-    alt: "Choose your IDE"
-    title: "Choose your IDE"
-    excerpt: "Use the IDE that is the best for the job. Android Studio, Xcode and (coming soon) Eclipse are all first class citizens in the Multi-OS Engine."
-intro:
-  - excerpt: '
-        [<i class="fa fa-github"></i> Fork](https://github.com/multi-os-engine){: .btn .btn--large}&nbsp;
-        [<i class="fa fa-comments"></i> Discuss](https://discuss.multi-os-engine.org){: .btn .btn--large .btn--migeran-blue}&nbsp;
-        [<i class="fa fa-book"></i> Learn](http://doc.multi-os-engine.org){: .btn .btn--large .btn--migeran-red}&nbsp; 
-        [<i class="fa fa-facebook"></i> Share](https://facebook.com/multi.os.engine){: .btn .btn--large .btn--facebook}&nbsp;
-        [<i class="fa fa-twitter"></i> Follow](https://twitter.com/moeappdev){: .btn .btn--large .btn--twitter}&nbsp;
-        '
-learnmore:
-  - excerpt: '
-        [Get Started](/start/){: .btn .btn--large .btn--moe-blue}&nbsp;
-        [Learn More](http://doc.multi-os-engine.org/){: .btn .btn--large .btn--moe-dark-blue}
-        '
+needhelp:
+  - image_path: migeran-logo-200x200.png
+    image_width: 200px
+    excerpt: 'Migeran offers commercial support, custom development and training services around the Multi-OS Engine.<br /><br />
+    		  [Contact Migeran]({{ site.data.links.migeran_contact }}){: .btn .btn--large .btn--migeran-red}'
 ---
 
 {% include feature_row id="intro" type="center" %}
 
-{% include feature_row id="features" %}
 
-{% include feature_row id="learnmore" type="center" %}
+## Community Support
+
+Our [Community Forum]({{ site.data.links.forum }}) is the best place to ask for help or discuss the features of the Multi-OS Engine.
+
+## Commercial Support
+
+{% include feature_row id="needhelp" type="center" %}

@@ -1,0 +1,7 @@
+{% include base_path %}
+{% assign navigation = site.data.navigation[include.nav] %}
+{% for nav in navigation %}
+	{% if nav.id = include.id %}
+		{{ nav.url }}
+	{% endif %}
+{% endfor %}

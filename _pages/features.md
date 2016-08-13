@@ -37,22 +37,14 @@ features:
     alt: "Choose your IDE"
     title: "Choose your IDE"
     excerpt: "Use the IDE that is the best for the job. Android Studio, Xcode and (coming soon) Eclipse are all first class citizens in the Multi-OS Engine."
-intro:
-  - excerpt: '
-        [<i class="fa fa-github"></i> Fork](https://github.com/multi-os-engine){: .btn .btn--large}&nbsp;
-        [<i class="fa fa-comments"></i> Discuss](https://discuss.multi-os-engine.org){: .btn .btn--large .btn--migeran-blue}&nbsp;
-        [<i class="fa fa-book"></i> Learn](http://doc.multi-os-engine.org){: .btn .btn--large .btn--migeran-red}&nbsp; 
-        [<i class="fa fa-facebook"></i> Share](https://facebook.com/multi.os.engine){: .btn .btn--large .btn--facebook}&nbsp;
-        [<i class="fa fa-twitter"></i> Follow](https://twitter.com/moeappdev){: .btn .btn--large .btn--twitter}&nbsp;
-        '
 learnmore:
   - excerpt: '
-        [Get Started](/start/){: .btn .btn--large .btn--moe-blue}&nbsp;
-        [Learn More](http://doc.multi-os-engine.org/){: .btn .btn--large .btn--moe-dark-blue}
+        [Get Started]({{ site.data.links.start }}){: .btn .btn--large .btn--moe-blue}&nbsp;
+        [Learn More]({{ site.data.links.docs }}){: .btn .btn--large .btn--moe-dark-blue}
         '
 ---
 
-{% include feature_row id="intro" type="center" %}
+{% include button_nav %}
 
 {% include feature_row id="features" %}
 
