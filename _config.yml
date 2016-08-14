@@ -11,7 +11,7 @@ title                    : "Multi-OS Engine"
 title_separator          : "-"
 name                     : "Multi-OS Engine"
 description              : "Create iOS Apps in Java"
-url                      : http://multi-os-engine.org # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://multi-os-engine.org # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
