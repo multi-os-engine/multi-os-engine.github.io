@@ -32,7 +32,7 @@ needhelp:
   - title: 'Need Help?'
     image_path: migeran-logo-200x200.png
     image_width: 200px
-    excerpt: 'Hire the core developers of Multi-OS Engine!<br/> [Migeran]({{ site.data.links.migeran }}) provides premium support, custom development and training services.<br/><br/>[Contact Migeran]({{ site.data.links.migeran_contact }}){: .btn .btn--large .btn--migeran-red}'
+    excerpt: '[Migeran]({{ site.data.links.migeran }}) is the project lead and core developer of Multi-OS Engine. We provide commercial support, custom development and training services.<br/><br/>[Contact Migeran]({{ site.data.links.migeran_contact }}){: .btn .btn--large .btn--migeran-red}'
 analyzer:
   - title: 'Is your Android App Ready for iOS?'
     image_path: features/MigeranAnalyzer.png
