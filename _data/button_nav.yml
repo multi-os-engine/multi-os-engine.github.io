@@ -1,6 +1,6 @@
 items:
   - excerpt: '
-        [<i class="fa fa-github"></i> Fork]({{ site.data.links.github }}){: .btn .btn--large}&nbsp;
+        [<i class="fa fa-github"></i> GitHub]({{ site.data.links.github }}){: .btn .btn--large}&nbsp;
         [<i class="fa fa-comments"></i> Discuss]({{ site.data.links.forum }}){: .btn .btn--large .btn--migeran-blue}&nbsp;
         [<i class="fa fa-book"></i> Learn]({{ site.data.links.docs }}){: .btn .btn--large .btn--migeran-red}&nbsp; 
         [<i class="fa fa-facebook"></i> Share]({{ site.data.links.facebook }}){: .btn .btn--large .btn--facebook}&nbsp;
