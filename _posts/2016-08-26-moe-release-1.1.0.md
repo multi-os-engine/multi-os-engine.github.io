@@ -13,7 +13,7 @@ This is the first release of the Multi-OS Engine that uses the new Gradle plugin
 
 Apart from this major feature the release includes the following improvements:
 
-* Android Studio / IDEA plugins are now distributed using the JetBrains plugin repositories.
+* Android Studio / IDEA plugins are now distributed using the JetBrains plugin repositories.
 * The MOE Gradle plugin is now on JCenter.
 * The simulator launcher was replaced by a completely new implementation. It is much more stable and supports Xcode 7.3 or newer. ([Issue #4](https://github.com/multi-os-engine/multi-os-engine/issues/4))
 * If the build process took too long during a debug launch, the JDWP connect timeout could be triggered. This is now fixed. ([Issue #5](https://github.com/multi-os-engine/multi-os-engine/issues/5))
