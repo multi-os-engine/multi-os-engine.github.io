@@ -42,6 +42,10 @@ buildsrc:
 *   Enrollment in the Apple Developer Program (required for iOS device support)
 *   Remote SSH Access to a computer running macOS 10.11 that meets the prerequisites above
 
+### Remove earlier Multi-OS Engine releases
+
+* If you have an earlier Multi-OS Engine installed, you have to remove it first. [Just follow the instructions from the documentation]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html).
+
 ### Install Android Studio / IDEA Plugin
 
 ![image-center](/images/features/android-studio-install.png){: .align-center}
