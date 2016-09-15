@@ -4,7 +4,7 @@
   <h4 class="page__comments-title">{{ site.data.ui-text[site.locale].comments_label }}</h4>
   {% case site.comments.provider %}
   {% when "discourse" %}
-    <section id='discourse-comments'></section>
+    <div id='discourse-comments'></div>
   {% when "disqus" %}
     <section id="disqus_thread"></section>
   {% when "facebook" %}
