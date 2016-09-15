@@ -3,6 +3,7 @@ title: "MOE Preview: Eclipse & LibGDX"
 excerpt: "iOS development comes to Eclipse; LibGDX updated to work with MOE 1.1.x"
 author_profile: true
 layout: single
+comments: true
 newproject:
   - image_path: features/eclipse-new-project.png
     image_width: 524px
@@ -34,7 +35,7 @@ Eclipse Support of the Multi-OS Engine is realized using an Eclipse plugin. To i
 
 After the restart, you may create a new Multi-OS Engine project, or import an existing one, provided, that they were updated to work with Eclipse.
 
-![New Project]({{ base_url }}/images/features/eclipse-new-project.png)
+![New Project]({{ base_url }}/images/features/eclipse-new-project.png){: .align-center}
 
 The MOE Eclipse plugin will work with any MOE Project, provided that the appropriate Eclipse Project Nature is added to the project. To do that, make sure that:
 
@@ -76,8 +77,8 @@ The easiest way to create a new LibGDX project is the GDX Setup tool (``gdx-setu
 
  1. Now you are ready to import the LibGDX project into Eclipse as a ``Gradle Project``. Choose the "Smart" import option. The resulting workspace will include a project called ``ios-moe``. You may run / debug this project as a ``Multi-OS Engine Application``. 
 
-![Run As]({{ base_url }}/images/features/eclipse-run-as.png)
+![Run As]({{ base_url }}/images/features/eclipse-run-as.png){: .align-center}
 
-![Launch Configuration]({{ base_url }}/images/features/eclipse-launch-config.png)
+![Launch Configuration]({{ base_url }}/images/features/eclipse-launch-config.png){: .align-center}
 
 If you run into any issues (or just want to say hi), please join us on our [discussion forum](https://discuss.multi-os-engine.org). Stay tuned for more updates on Maven support and the upcoming MOE 1.2.0 release.
