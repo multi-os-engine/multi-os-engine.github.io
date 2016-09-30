@@ -33,7 +33,7 @@ In preparation to support other Apple OSes besides iOS in a future release, we r
 
 We created a pull request for LibGDX, so the MOE backend should be updated to use MOE 1.2 shortly.
 
-## Housecleaning
+## Removed Features
 
 It is always a hard decision to remove existing features from a software package. We thought long and hard about this decision, but ultimately we believe that these changes will make the Multi-OS Engine better for the developers who rely on it.
 

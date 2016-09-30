@@ -32,6 +32,14 @@ The release was marked with the tag ``moe-1.2.0``.
 
 ## Known Issues
 
+### Linking 3rd party libraries, frameworks and CocoaPods is not always working as intended.
+
+* Binding generation may fail. There is no workaround for this, but we aim to address this issue in Multi-OS Engine 1.3.
+
+### Some samples are not working as intended.
+
+* Documentation, UI and usability issues. We aim to address this in Multi-OS Engine 1.3.
+
 ### Launching an application on a device which was not previously trusted will fail.
 
 * When a device is connected to a computer for the first time, the device asks whether to trust the computer or not. If the computer is not trusted at the time of launching, the launch will fail.
