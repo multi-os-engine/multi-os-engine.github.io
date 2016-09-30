@@ -53,7 +53,9 @@ In MOE 1.3 the build-time Xcode project generation will be removed, so it is rec
 
 You may read more details on the background of this decision in our [Behind The Scenes post](/blog/2016-09-30-removed-features/).
 
-## Major Bug Fixes
+## Other Changes
+
+You may check out the other changes and bugfixes [on GitHub]({{ site.data.links.github }}/issues?q=is%3Aissue%20milestone%3A1.2.0).
 
 ## How to install
 
