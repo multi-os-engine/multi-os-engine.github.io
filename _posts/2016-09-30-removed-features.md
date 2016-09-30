@@ -1,11 +1,11 @@
 ---
-title: "Housecleaning - Behind the Scenes"
-excerpt: "A Tale of Feature Removal"
+title: "Removed Features - Behind The Scenes"
+excerpt: "Why did we remove features and what to expect in the future"
 author_profile: true
 layout: single
 ---
 
-With today's release of [MOE 1.2.0](/blog/2016-09-29-moe-release-1.2.0/) we felt it was important to share the reasons behind our housecleaning decisions in more detail.
+With today's release of [MOE 1.2.0](/blog/2016-09-30-moe-release-1.2.0/) we felt it was important to share the reasons behind our housecleaning decisions in more detail.
 
 ## UI Designer Removal
 

@@ -37,13 +37,13 @@ We created a pull request for LibGDX, so the MOE backend should be updated to us
 
 It is always a hard decision to remove existing features from a software package. We thought long and hard about this decision, but ultimately we believe that these changes will make the Multi-OS Engine better for the developers who rely on it.
 
-We published a [separate blog post](/blog/2016-09-29-housecleaning/) to explain our reasoning behind the removal of these features. Be sure to read that post as well for more details.
+We published a [separate blog post](/blog/2016-09-30-removed-features/) to explain our reasoning behind the removal of these features. Be sure to read that post as well for more details.
 
 ### MOE Designer Removed from the Release
 
 We decided to remove the MOE UI Designer from the release, and also from the Jetbrains Plugin Repository. It is recommended that you remove it from your Android Studio / IDEA installation before you upgrade to MOE 1.2, because we have seen compatibility issues between the 2 MOE plugins.
 
-The plugin source code will [remain on GitHub](https://github.com/multi-os-engine/moe-ui-designer), so you are free to check it out and use it, if you are interested. We are open to including it again in a future release, when [the current issues with it](/blog/2016-09-29-housecleaning/) are fixed.
+The plugin source code will [remain on GitHub](https://github.com/multi-os-engine/moe-ui-designer), so you are free to check it out and use it, if you are interested. We are open to including it again in a future release, when [the current issues with it](/blog/2016-09-30-removed-features/) are fixed.
 
 ### Deprecated Build-time Xcode Project Generation - To Be Removed in MOE 1.3
 
@@ -51,7 +51,7 @@ Starting with MOE 1.2, all newly generated MOE projects will use the persistent 
 
 In MOE 1.3 the build-time Xcode project generation will be removed, so it is recommended to switch to persistent Xcode project mode as soon as possible. Please [contact us]({{ site.data.links.forum }}), if you need assistance with the switch.
 
-You may read more details on the background of this decision in our [Housecleaning post](/blog/2016-09-29-housecleaning/).
+You may read more details on the background of this decision in our [Behind The Scenes post](/blog/2016-09-30-removed-features/).
 
 ## Major Bug Fixes
 
