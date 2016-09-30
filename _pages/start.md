@@ -17,6 +17,16 @@ buildsrc:
 
 {% include button_nav %}
 
+## Upgrading from MOE 1.1
+
+This is a quick summary for upgrading, please read the rest of the installation documentation for the details on each topic. If you don't have MOE 1.1 installed yet, you may skip this section.
+
+* Upgrade your IDE plugin.
+* [Remove the UI Designer plugin](/blog/2016-09-30-removed-features/) if you had it installed.
+* Upgrade the MOE Gradle plugin in your projects' ``build.gradle`` file.
+* Change your existing projects to use ``apple.*`` instead of ``ios.*`` for the iOS binding packages.
+* Enter the default Development Team Id in ``${user.home}/.moe/default.properties`` to allow on device app execution on Xcode 8. More details below and [in the Docs]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html).
+
 ## Installation
 
 ### Prerequisites for an Apple macOS host
@@ -42,19 +52,27 @@ buildsrc:
 *   Enrollment in the Apple Developer Program (required for iOS device support)
 *   Remote SSH Access to a computer running macOS 10.11 that meets the prerequisites above
 
-### Remove earlier Multi-OS Engine releases
+### Remove old Multi-OS Engine releases (MOE 1.0 or older)
 
 * If you have an earlier Multi-OS Engine installed, you have to remove it first. [Just follow the instructions from the documentation]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html).
 
-### Install Android Studio / IDEA Plugin
+### Option 1: Install Android Studio / IDEA Plugin
 
 ![image-center](/images/features/android-studio-install.png){: .align-center}
 
 * You may install the Multi-OS Engine plugin from the JetBrains plugin repository, right from Android Studio (or IntelliJ IDEA).
 
-### That's it! 
+### Option 2: Install Eclipse Plugin
 
-* The SDK will be downloaded automatically, when you first create a project or import a sample. 
+* Open Eclipse 4.5 (Mars) or later 
+* Open the Install New Software window from the the Help menu
+* Add the Multi-OS Engine plugin repository:
+
+    ```
+    https://dl.bintray.com/multi-os-engine/eclipse
+    ```
+
+* Install the Multi-OS Engine Plugin from the newly added repository
 
 ### Clone the samples repository from GitHub
 
@@ -63,11 +81,27 @@ buildsrc:
 git clone https://github.com/multi-os-engine/moe-samples-java
 ```
 
-### Import a sample into Android Studio
+### Import a sample into Android Studio / IntelliJ or Eclipse
 
-* Use the ``Import Project (Eclipse ADT, Gradle, etc.)`` option
-* As the Gradle project is synchronized into Android Studio, the Gradle plugin will automatically download the required MOE SDK version
-* Now you may launch the App as usual
+* Use the ``Import Project (Eclipse ADT, Gradle, etc.)`` option in Android Studio / IDEA
+* Or import your project as ``Gradle Project`` in Eclipse
+* As the Gradle project is synchronized into your IDE, the Gradle plugin will automatically download the required MOE SDK version
+* Now you may launch the App on the iOS Simulator as usual
+* For on device execution, read on.
+
+### Set up Code Signing for On Device Execution in Xcode 8
+
+Code signing in Xcode 8 is different from Xcode 7. For ease of use we recommend you create a `default.properties` file in your `~/.moe` directory. This file should contain you Apple Developer Team ID in the following form:
+
+```text
+developmentTeam=ABCDEFGHIJ
+```
+
+For more information on code signing, visit the [installation documentation]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html) and the [Multi-OS Engine Gradle Plugin](https://github.com/multi-os-engine/moe-plugin-gradle/blob/master/README.md#code-signing) on GitHub.
+
+### That's it! 
+
+* Now you have set up (and tested) MOE 1.2 on your system.
 
 ## More Information
 
