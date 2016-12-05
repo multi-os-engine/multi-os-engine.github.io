@@ -1,5 +1,5 @@
 ---
-title: "What is planned for MOE 1.3"
+title: "Plans for MOE 1.3"
 excerpt: "More flexible than ever"
 author_profile: true
 layout: single
