@@ -96,7 +96,6 @@ The final, polished release of MOE 1.3 will arrive in January 2017.
 
 While MOE 1.3 will lay the stable foundations that we can build on, there will be features that simply won't fit into this release. A few examples:
 
- * A user friendly editor for Nat/J Generator configurations (it is JSON based, so you can do it by hand already, but it would be nice to have a real GUI)
  * Full featured, platform-independent editor for Xcode projects: with the removal of the build-time Xcode project generation
  * Linux based development host: this is a low hanging fruit, but with all the planned changes, we have to postpone it to MOE 1.4
 
