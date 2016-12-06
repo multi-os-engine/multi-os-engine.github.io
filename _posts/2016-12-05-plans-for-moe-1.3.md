@@ -18,7 +18,7 @@ Up to MOE 1.2, our build system required some specific settings in an Xcode proj
 
 Starting with MOE 1.3, we will only require a few custom build phases and build settings in your main Xcode project. The build system will also work with Xcode workspaces.
 
-MOE 1.3 will include a tool that can upgrade an MOE 1.2 Xcode project to MOE 1.3. This tool can also apply the required MOE settings to an existing Xcode project, similar to ``pod install`` in CocoaPods. This way it way be straightforward to add Java code to any iOS project.
+MOE 1.3 will include a tool that can upgrade an MOE 1.2 Xcode project to MOE 1.3. This tool can also apply the required MOE settings to an existing Xcode project, similar to ``pod install`` in CocoaPods. This way it will be straightforward to add Java code to any iOS project.
 
 ## Support for native dependency management frameworks
 
@@ -26,7 +26,7 @@ The main goal of the Xcode project layout redesign was, that MOE should work tog
 
 Our solution is basically to get out of the way of these frameworks, and only require minimal changes to the Xcode project.
 
-Starting with MOE 1.3 you can add your native libraries to your MOE project the same way you would do in an Objective-C / Swift only iOS project, e.g. call ``pod install`` and ``pod update`` the same way you would do it on any other CocoaPods enabled project.
+Starting with MOE 1.3 you can add your native libraries to your MOE project the same way you would do in an Objective-C / Swift only iOS project, e.g. call ``pod install`` and ``pod update`` the same way you would do it with any other CocoaPods enabled project.
 
 ## Redesigned native library binding handling
 
@@ -48,7 +48,7 @@ These bindings can be reused in your MOE projects by simply adding them as a bui
 
 We are also creating a central repository of MOE bindings for the most frequently used iOS libraries. The binding projects will be hosted on GitHub with the rest of MOE, and the generated bindings will be added to JCenter and Maven Central for your convenience.
 
-We already have a few bindings created (e.g. the already Google Play Services for iOS library).
+We already have a few bindings created (e.g. the already mentioned Google Play Services for iOS library).
 
 Contributions of additional bindings are very welcome!
 
@@ -65,19 +65,20 @@ In this case the ViewController classes are created manually in your favorite Ja
 
 Up to MOE 1.2 the implementation of this function had several issues:
 
- * the stub generation worked with the Java source code, so alternative languages, like Kotlin, could not be supported.
+ * the stub generation worked only with Java source code, so alternative languages, like Kotlin, could not be supported.
  * the generated stubs were added to the Xcode project in a way that could cause issues with building from Xcode and with accessing them from Storyboards.
  * the function only worked with the build-time generated Xcode project mode, which was deprecated in MOE 1.2 and will be removed from MOE 1.3.
 
 In MOE 1.3 the complete implementation was replaced with a new one:
 
+ * the menu item will be called ``Generate Actions and Outlets for Interface Builder``
  * the Objective-C stubs are generated from Java bytecode, so alternative languages can be supported. Kotlin support will be included in MOE 1.3.
  * the contents of the generated stub classes are only visible to the Storyboards but not to the build process (with the use of the appropriate ``#if`` preprocessor guards)
  * designed to work with the persistent Xcode project setup
 
 ### ViewController stubs created in Objective-C
 
-In this case ViewController stubs are created in Objective-C, and used with Storyboards directly to connect the properties and actions. The ``Synchronize to Java`` action can be used to generate the Java bindings for these ViewController stubs. These Java classes can be extended with the action implementations, as usual.
+In this case ViewController stubs are created in Objective-C, and used with Storyboards directly to connect the properties and actions. The ``Synchronize to Java`` action (we will rename it to be more descriptive) can be used to generate the Java bindings for these ViewController stubs. These Java classes can be extended with the action implementations, as usual.
 
 Up to MOE 1.2 this action could only be executed on a single header file.
 

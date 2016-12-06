@@ -14,26 +14,25 @@ In this blog post we will outline our plans for the next couple of months.
 
 Since the start of the Multi-OS Engine Open Source Project we made a number of releases:
 
- * **08/2016 MOE 1.0**
+ * **[08/2016 MOE 1.0](/blog/2016-08-18-multi-os-engine-is-open-source/)**
    * Initial Open Source Release
    * Released by Intel
    * Open-sourced both the stable branch and also the development branch (Android 7 based)
 
- * **08/2016 MOE 1.1**
+ * **[08/2016 MOE 1.1](/blog/2016-08-26-moe-release-1.1.0/)**
    * Moved to Maven based distribution
    * New Gradle Plugin
    * First Release by Migeran
 
- * **09/2016 MOE 1.2**
+ * **[09/2016 MOE 1.2](/blog/2016-09-30-moe-release-1.2.0/)**
    * Eclipse & Maven Support
-   * Retired Android Studio Designer
+   * Retired Multi-OS Engine UI Designer
    * Xcode 8 and iOS 10 support
    * Deprecated build-time Xcode project generation
 
- * **10/2016, 11/2016 MOE 1.2.x patch releases**
+ * **[10/2016, 11/2016 MOE 1.2.x patch releases](/blog/2016-12-05-moe-1.2.5/)**
    * Various bug fixes and convenience features
-   * [MOE 1.2.5](/blog/2016-12-05-moe-1.2.5/) was released on 2016-11-28
-   * [More information](/blog/2016-12-05-moe-1.2.5/)
+   * MOE 1.2.5 was released on 2016-11-28
 
 ## Exciting Times Ahead
 
