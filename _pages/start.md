@@ -101,7 +101,7 @@ For more information on code signing, visit the [installation documentation]({{ 
 
 ### That's it! 
 
-* Now you have set up (and tested) MOE 1.2 on your system.
+* Now you have set up (and tested) MOE on your system.
 
 ## More Information
 
