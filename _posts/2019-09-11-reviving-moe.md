@@ -24,14 +24,14 @@ We already started working on the next release, that will make MOE functional ag
 
 It will most probably not include any new APIs (except for those that the generator can pick up without any changes).
 
-## October 2019: MOE 1.6 with iPadOS Support
+## October 2019: MOE 1.6 with iPadOS Support
 
 In October we plan to release the next update that will include:
 
- * New iOS and iPadOS APIs
+ * New iOS and iPadOS APIs
  * Improvements to the Nat/J Generator to handle currently unsupported features (e.g. vector types in the AR API)
 
-## Turning MOE into a true Community Project
+## Turning MOE into a True Community Project
 
 We are committed to turning MOE into a true Community Project. This means multiple things:
 
@@ -40,7 +40,7 @@ We are committed to turning MOE into a true Community Project. This means multip
  * We will also move the current website code into a public repository, so anyone can send us pull requests for the website contents as well.
  * And last but not least: We are planning much more frequent communication with the members of the community (e.g. weekly updates). 
 
-## In the Next Project Update: Longer Term Plans of MOE
+## In the Next Project Update: Longer Term Plans of MOE
 
 We have way more plans and ideas for the future, that we are going to share in future updates. In the next update I will take a look at different components of MOE (the runtime, Nat/J and the generator ... etc.), and what you can expect in the foreseeable future.
 
@@ -48,6 +48,6 @@ As always, feedback is very welcome here in the comments or [on the forum]({{ si
 
 Looking forward to hearing from you.
 
-Gergely Kis
+Gergely Kis<br>
 MOE Project Lead
 
