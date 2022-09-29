@@ -11,7 +11,7 @@ buildsrc:
   - title: Build from Source
     image_path: wet_surface.png
     excerpt: 'We are working hard to get an easy to use installation method ready. In the meantime you can build MOE from source.<br /><br />
-        [<i class="fa fa-github"></i> Start Building]({{ site.data.links.github }}){: .btn .btn--large}&nbsp;
+        [<i class="fa fa-github"></i> Start Building](https://github.com/multi-os-engine/multi-os-engine){: .btn .btn--large}&nbsp;
         '
 ---
 
@@ -25,7 +25,7 @@ This is a quick summary for upgrading, please read the rest of the installation 
 * [Remove the UI Designer plugin](/blog/2016-09-30-removed-features/) if you had it installed.
 * Upgrade the MOE Gradle plugin in your projects' ``build.gradle`` file.
 * Change your existing projects to use ``apple.*`` instead of ``ios.*`` for the iOS binding packages.
-* Enter the default Development Team Id in ``${user.home}/.moe/default.properties`` to allow on device app execution on Xcode 8. More details below and [in the Docs]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html).
+* Enter the default Development Team Id in ``${user.home}/.moe/default.properties`` to allow on device app execution on Xcode 8. More details below and [in the Docs](https://doc.multi-os-engine.org/multi-os-engine/3_getting_started/1_installation/installation.html).
 
 ## Installation
 
@@ -54,7 +54,7 @@ This is a quick summary for upgrading, please read the rest of the installation 
 
 ### Remove old Multi-OS Engine releases (MOE 1.0 or older)
 
-* If you have an earlier Multi-OS Engine installed, you have to remove it first. [Just follow the instructions from the documentation]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html).
+* If you have an earlier Multi-OS Engine installed, you have to remove it first. [Just follow the instructions from the documentation](https://doc.multi-os-engine.org/multi-os-engine/3_getting_started/1_installation/installation.html).
 
 ### Option 1: Install Android Studio / IDEA Plugin
 
@@ -97,7 +97,7 @@ Code signing in Xcode 8 is different from Xcode 7. For ease of use we recommend 
 developmentTeam=ABCDEFGHIJ
 ```
 
-For more information on code signing, visit the [installation documentation]({{ site.data.links.docs }}/multi-os-engine/3_getting_started/1_installation/installation.html) and the [Multi-OS Engine Gradle Plugin](https://github.com/multi-os-engine/moe-plugin-gradle/blob/master/README.md#code-signing) on GitHub.
+For more information on code signing, visit the [installation documentation](https://doc.multi-os-engine.org/multi-os-engine/3_getting_started/1_installation/installation.html) and the [Multi-OS Engine Gradle Plugin](https://github.com/multi-os-engine/moe-plugin-gradle/blob/master/README.md#code-signing) on GitHub.
 
 ### That's it! 
 
@@ -105,6 +105,6 @@ For more information on code signing, visit the [installation documentation]({{ 
 
 ## More Information
 
-* [Multi-OS Engine Documentation]({{ site.data.links.docs }})
-* [Multi-OS Engine Source Code]({{ site.data.links.github }})
-* [Join the Community Forum]({{ site.data.links.forum }})
+* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
+* [Join the Community Forum](https://discuss.multi-os-engine.org)

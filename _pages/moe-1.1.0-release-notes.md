@@ -11,7 +11,7 @@ buildsrc:
   - title: Build from Source
     image_path: wet_surface.png
     excerpt: 'We are working hard to get an easy to use installation method ready. In the meantime you can build MOE from source.<br /><br />
-        [<i class="fa fa-github"></i> Start Building]({{ site.data.links.github }}){: .btn .btn--large}&nbsp;
+        [<i class="fa fa-github"></i> Start Building](https://github.com/multi-os-engine/multi-os-engine){: .btn .btn--large}&nbsp;
         '
 ---
 
@@ -34,11 +34,11 @@ Apart from this major feature the release includes the following improvements:
 
 ## How to install
 
-Please follow the instructions on the [Get Started page]({{ site.data.links.start }}).
+Please follow the instructions on the [Get Started page](/start/).
 
 ## Where is the source code
 
-The source code can be found on [GitHub]({{ site.data.links.github }}).
+The source code can be found on [GitHub](https://github.com/multi-os-engine/multi-os-engine).
 
 The release was marked with the tag ``moe-1.1.0``.
 
@@ -81,6 +81,6 @@ The build logic has been largely improved, and this issue now only affects a sub
 
 ## More Information
 
-* [Multi-OS Engine Documentation]({{ site.data.links.docs }})
-* [Multi-OS Engine Source Code]({{ site.data.links.github }})
-* [Join the Community Forum]({{ site.data.links.forum }})
+* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
+* [Join the Community Forum](https://discuss.multi-os-engine.org)

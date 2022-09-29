@@ -25,14 +25,14 @@ feature_row:
     title: "100% Open-Source"
     excerpt: "Based on Android, free to use under the Apache 2 License. Contributors welcome!"
 learnmore:
-  - excerpt: "[Get Started]({{ site.data.links.start }}){: .btn .btn--large}&nbsp;
-              [Learn More]({{ site.data.links.docs }}){: .btn .btn--large}
+  - excerpt: "[Get Started](/start/){: .btn .btn--large}&nbsp;
+              [Learn More](https://doc.multi-os-engine.org){: .btn .btn--large}
               "
 needhelp:
   - title: 'Need Help?'
     image_path: migeran-logo-200x200.png
     image_width: 200px
-    excerpt: '[Migeran]({{ site.data.links.migeran }}) is the project lead and core developer of Multi-OS Engine. We provide commercial support, custom development and training services.<br/><br/>[Contact Migeran]({{ site.data.links.migeran_contact }}){: .btn .btn--large .btn--migeran-red}'
+    excerpt: '[Migeran](https://migeran.com) is the project lead and core developer of Multi-OS Engine. We provide commercial support, custom development and training services.<br/><br/>[Contact Migeran](https://migeran.com/contact){: .btn .btn--large .btn--migeran-red}'
 ---
 
 {% include button_nav %}

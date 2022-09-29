@@ -23,7 +23,7 @@ The Multi-OS Engine source code is freely available under the Apache 2 license. 
 	* the in-development version of the new LLVM / Bitcode compiler backend (including preliminary Windows target support)
 	* C++ support for Nat/J
 
-To try out this first release, just follow the instructions on the [Get Started page]({{ site.data.links.start }}). 
+To try out this first release, just follow the instructions on the [Get Started page](/start/). 
 
 ## The Immediate Future
 
@@ -40,10 +40,10 @@ Migeran will also work on fixing any known issues and add new features:
 * Linux support
 * LLVM based compiler backend for Bitcode support, with a platform update to the Android "N" series
 
-We are also looking forward to valuable contributions from the Community. If you are interested in contributing, [let's discuss it on the forum]({{ site.data.links.forum }}).
+We are also looking forward to valuable contributions from the Community. If you are interested in contributing, [let's discuss it on the forum](https://discuss.multi-os-engine.org).
 
 ## Next Steps
 
-* Try out MOE now on the [Get Started page]({{ site.data.links.start }}).
-* The best place to discuss MOE is our [community forums]({{ site.data.links.forum }}), please join us there.
+* Try out MOE now on the [Get Started page](/start/).
+* The best place to discuss MOE is our [community forums](https://discuss.multi-os-engine.org), please join us there.
 * Spread the Word: Use the links below to share the news about MOE with the world

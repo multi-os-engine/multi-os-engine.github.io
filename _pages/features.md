@@ -39,8 +39,8 @@ features:
     excerpt: "Use the IDE that is the best for the job. Android Studio, Xcode and (coming soon) Eclipse are all first class citizens in the Multi-OS Engine."
 learnmore:
   - excerpt: '
-        [Get Started]({{ site.data.links.start }}){: .btn .btn--large .btn--moe-blue}&nbsp;
-        [Learn More]({{ site.data.links.docs }}){: .btn .btn--large .btn--moe-dark-blue}
+        [Get Started](/start/){: .btn .btn--large .btn--moe-blue}&nbsp;
+        [Learn More](https://doc.multi-os-engine.org){: .btn .btn--large .btn--moe-dark-blue}
         '
 ---
 

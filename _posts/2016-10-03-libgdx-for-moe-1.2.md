@@ -10,7 +10,7 @@ Our Pull Request to update the Multi-OS Engine backend in LibGDX was already mer
 
 To try it out, just follow these steps:
 
- * [Install MOE 1.2]({{ site.data.links.start }}) into your IDE of choice (Android Studio / IntelliJ or Eclipse)
+ * [Install MOE 1.2](/start/) into your IDE of choice (Android Studio / IntelliJ or Eclipse)
  * Download the nightly build of [gdx-setup.jar](https://libgdx.badlogicgames.com/nightlies/dist/gdx-setup.jar)
  * Generate a new GDX project with gdx-setup
   * Make sure that you select the ``ios-moe`` backend
@@ -19,4 +19,4 @@ To try it out, just follow these steps:
  * Create a run / launch configuration and start the app
  * Enjoy!
 
-**Note:** If you want to run your app on a real device with Xcode 8, you need to configure code signing correctly. For more details, please refer to our [documentation]({{ site.data.links.start }}).
+**Note:** If you want to run your app on a real device with Xcode 8, you need to configure code signing correctly. For more details, please refer to our [documentation](/start/).

@@ -48,7 +48,7 @@ moe {
 
 Now your project should be ready for MOE 1.3. Launch from your IDE and Enjoy!
 
-**Note:** If you have not used MOE before, then you will need to set up code signing. Follow the instructions on the [MOE Website]({{ site.data.links.start }}) on how to set the default team for developer signing.
+**Note:** If you have not used MOE before, then you will need to set up code signing. Follow the instructions on the [MOE Website](/start/) on how to set the default team for developer signing.
 
 ## Request for Comments
 

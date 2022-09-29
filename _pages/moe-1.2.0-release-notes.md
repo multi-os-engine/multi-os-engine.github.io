@@ -11,7 +11,7 @@ buildsrc:
   - title: Build from Source
     image_path: wet_surface.png
     excerpt: 'We are working hard to get an easy to use installation method ready. In the meantime you can build MOE from source.<br /><br />
-        [<i class="fa fa-github"></i> Start Building]({{ site.data.links.github }}){: .btn .btn--large}&nbsp;
+        [<i class="fa fa-github"></i> Start Building](https://github.com/multi-os-engine/multi-os-engine){: .btn .btn--large}&nbsp;
         '
 ---
 
@@ -31,7 +31,7 @@ We now have a Maven plugin as well, so if you prefer to use Maven instead of Gra
 
 This release adds support for building with Xcode 8. 
 
-Note: Xcode 8 changed the way how signing works. To build on Xcode 8, your Development Team's identifier has to be configured. Please refer to the [documentation]({{ site.data.links.docs }}) or the [Get Started]({{ site.data.links.start }}) page for more details.
+Note: Xcode 8 changed the way how signing works. To build on Xcode 8, your Development Team's identifier has to be configured. Please refer to the [documentation](https://doc.multi-os-engine.org) or the [Get Started](/start/) page for more details.
 
 ### iOS 10 Support
 
@@ -59,22 +59,22 @@ The plugin source code will [remain on GitHub](https://github.com/multi-os-engin
 
 Starting with MOE 1.2, all newly generated MOE projects will use the persistent Xcode project setup (``Keep Xcode`` mode in MOE 1.1). Existing projects with build-time Xcode project generation will continue to work.
 
-In MOE 1.3 the build-time Xcode project generation will be removed, so it is recommended to switch to persistent Xcode project mode as soon as possible. Please [contact us]({{ site.data.links.forum }}), if you need assistance with the switch.
+In MOE 1.3 the build-time Xcode project generation will be removed, so it is recommended to switch to persistent Xcode project mode as soon as possible. Please [contact us](https://discuss.multi-os-engine.org), if you need assistance with the switch.
 
 You may read more details on the background of this decision in our [Behind The Scenes post](/blog/2016-09-30-removed-features/).
 
 ##  Other Changes
 
-You may check out the other changes and bugfixes [on GitHub]({{ site.data.links.github }}/issues?q=is%3Aissue%20milestone%3A1.2.0).
+You may check out the other changes and bugfixes [on GitHub](https://github.com/multi-os-engine/multi-os-engine/issues?q=is%3Aissue%20milestone%3A1.2.0).
 
 
 ## How to install
 
-Please follow the instructions on the [Get Started page]({{ site.data.links.start }}).
+Please follow the instructions on the [Get Started page](/start/).
 
 ## Where is the source code
 
-The source code can be found on [GitHub]({{ site.data.links.github }}).
+The source code can be found on [GitHub](https://github.com/multi-os-engine/multi-os-engine).
 
 The release was marked with the tag ``moe-1.2.0``.
 
@@ -119,6 +119,6 @@ Running JUnit tests in Maven projects is not yet supported in the Eclipse plugin
 
 ## More Information
 
-* [Multi-OS Engine Documentation]({{ site.data.links.docs }})
-* [Multi-OS Engine Source Code]({{ site.data.links.github }})
-* [Join the Community Forum]({{ site.data.links.forum }})
+* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
+* [Join the Community Forum](https://discuss.multi-os-engine.org)

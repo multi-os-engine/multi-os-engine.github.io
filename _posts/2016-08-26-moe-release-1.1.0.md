@@ -22,15 +22,15 @@ Apart from this major feature the release includes the following improvements:
 * We added the ``Keep Xcode project`` option to the Android Studio project wizard. This way, you can create new projects in a single step, where the Xcode project will be managed manually. 
 * Also made some internal fixes to the project generation logic ([Issue #2](https://github.com/multi-os-engine/multi-os-engine/issues/2))
 
-Enjoy! If you have any questions, don't hesitate to contact us on the [MOE Forum]({{ site.data.links.forum }}).
+Enjoy! If you have any questions, don't hesitate to contact us on the [MOE Forum](https://discuss.multi-os-engine.org/).
 
 ## How to install
 
-Please follow the instructions on the [Get Started page]({{ site.data.links.start }}).
+Please follow the instructions on the [Get Started page](/start/).
 
 ## More Information
 
 * [MOE 1.1.0 Release Notes](/moe-1.1.0-release-notes/)
-* [Multi-OS Engine Documentation]({{ site.data.links.docs }})
-* [Multi-OS Engine Source Code]({{ site.data.links.github }})
-* [Join the Community Forum]({{ site.data.links.forum }})
+* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
+* [Join the Community Forum](https://discuss.multi-os-engine.org)
