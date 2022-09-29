@@ -33,10 +33,6 @@ needhelp:
     image_path: migeran-logo-200x200.png
     image_width: 200px
     excerpt: '[Migeran]({{ site.data.links.migeran }}) is the project lead and core developer of Multi-OS Engine. We provide commercial support, custom development and training services.<br/><br/>[Contact Migeran]({{ site.data.links.migeran_contact }}){: .btn .btn--large .btn--migeran-red}'
-analyzer:
-  - title: 'Is your Android App Ready for iOS?'
-    image_path: features/MigeranAnalyzer.png
-    excerpt: 'Find out with the free Migeran Analyzer web service<br /><br />[Start Now]({{ site.data.links.migeran_analyzer }}){: .btn .btn--large .btn--migeran-blue}'
 ---
 
 {% include button_nav %}
@@ -44,7 +40,5 @@ analyzer:
 {% include feature_row %}
 
 {% include feature_row id="learnmore" type="center" %}
-
-{% include feature_row id="analyzer" type="center" %}
 
 {% include feature_row id="needhelp" type="center" %}
