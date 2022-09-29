@@ -31,6 +31,6 @@ Please follow the instructions on the [Get Started page](/start/).
 ## More Information
 
 * [MOE 1.1.0 Release Notes](/moe-1.1.0-release-notes/)
-* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Documentation](/docs/)
 * [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
 * [Join the Community Forum](https://discuss.multi-os-engine.org)

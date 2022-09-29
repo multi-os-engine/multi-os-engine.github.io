@@ -4,7 +4,7 @@ main:
     url: "/features/"
 
   - title: "Docs"
-    url: "https://doc.multi-os-engine.org"
+    url: "/docs/"
 
   - title: "Blog"
     url: "/blog/"

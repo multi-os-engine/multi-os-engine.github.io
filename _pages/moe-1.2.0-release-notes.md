@@ -31,7 +31,7 @@ We now have a Maven plugin as well, so if you prefer to use Maven instead of Gra
 
 This release adds support for building with Xcode 8. 
 
-Note: Xcode 8 changed the way how signing works. To build on Xcode 8, your Development Team's identifier has to be configured. Please refer to the [documentation](https://doc.multi-os-engine.org) or the [Get Started](/start/) page for more details.
+Note: Xcode 8 changed the way how signing works. To build on Xcode 8, your Development Team's identifier has to be configured. Please refer to the [documentation](/docs/) or the [Get Started](/start/) page for more details.
 
 ### iOS 10 Support
 
@@ -119,6 +119,6 @@ Running JUnit tests in Maven projects is not yet supported in the Eclipse plugin
 
 ## More Information
 
-* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Documentation](/docs/)
 * [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
 * [Join the Community Forum](https://discuss.multi-os-engine.org)

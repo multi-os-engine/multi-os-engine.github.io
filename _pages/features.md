@@ -40,7 +40,7 @@ features:
 learnmore:
   - excerpt: '
         [Get Started](/start/){: .btn .btn--large .btn--moe-blue}&nbsp;
-        [Learn More](https://doc.multi-os-engine.org){: .btn .btn--large .btn--moe-dark-blue}
+        [Learn More](/docs/){: .btn .btn--large .btn--moe-dark-blue}
         '
 ---
 

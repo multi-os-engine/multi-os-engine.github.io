@@ -26,7 +26,7 @@ feature_row:
     excerpt: "Based on Android, free to use under the Apache 2 License. Contributors welcome!"
 learnmore:
   - excerpt: "[Get Started](/start/){: .btn .btn--large}&nbsp;
-              [Learn More](https://doc.multi-os-engine.org){: .btn .btn--large}
+              [Learn More](/docs/){: .btn .btn--large}
               "
 needhelp:
   - title: 'Need Help?'

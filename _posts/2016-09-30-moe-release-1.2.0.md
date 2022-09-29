@@ -21,7 +21,7 @@ We now have a Maven plugin as well, so if you prefer to use Maven instead of Gra
 
 This release adds support for building with Xcode 8. 
 
-Note: Xcode 8 changed the way how signing works. To build on Xcode 8, your Development Team's identifier has to be configured. Please refer to the [documentation](https://doc.multi-os-engine.org) or the [Get Started](/start/) page for more details.
+Note: Xcode 8 changed the way how signing works. To build on Xcode 8, your Development Team's identifier has to be configured. Please refer to the [documentation](/docs/) or the [Get Started](/start/) page for more details.
 
 ### iOS 10 Support
 
@@ -64,6 +64,6 @@ Please follow the instructions on the [Get Started page](/start/).
 ## More Information
 
 * [MOE 1.2.0 Release Notes](/moe-1.2.0-release-notes/)
-* [Multi-OS Engine Documentation](https://doc.multi-os-engine.org)
+* [Multi-OS Engine Documentation](/docs/)
 * [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
 * [Join the Community Forum](https://discuss.multi-os-engine.org)
