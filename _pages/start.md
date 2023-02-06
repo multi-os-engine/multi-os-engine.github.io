@@ -17,16 +17,6 @@ buildsrc:
 
 {% include button_nav %}
 
-## Upgrading from MOE 1.1
-
-This is a quick summary for upgrading, please read the rest of the installation documentation for the details on each topic. If you don't have MOE 1.1 installed yet, you may skip this section.
-
-* Upgrade your IDE plugin.
-* [Remove the UI Designer plugin](/blog/2016-09-30-removed-features/) if you had it installed.
-* Upgrade the MOE Gradle plugin in your projects' ``build.gradle`` file.
-* Change your existing projects to use ``apple.*`` instead of ``ios.*`` for the iOS binding packages.
-* Enter the default Development Team Id in ``${user.home}/.moe/default.properties`` to allow on device app execution on Xcode 8. More details below and [in the Docs](/docs/multi-os-engine/3_getting_started/1_installation/installation.html).
-
 ## Installation
 
 ### Prerequisites for an Apple macOS host
@@ -52,27 +42,11 @@ This is a quick summary for upgrading, please read the rest of the installation 
 *   Enrollment in the Apple Developer Program (required for iOS device support)
 *   Remote SSH Access to a computer running macOS 10.11 that meets the prerequisites above
 
-### Remove old Multi-OS Engine releases (MOE 1.0 or older)
-
-* If you have an earlier Multi-OS Engine installed, you have to remove it first. [Just follow the instructions from the documentation](/docs/multi-os-engine/3_getting_started/1_installation/installation.html).
-
 ### Option 1: Install Android Studio / IDEA Plugin
 
 ![image-center](/images/features/android-studio-install.png){: .align-center}
 
 * You may install the Multi-OS Engine plugin from the JetBrains plugin repository, right from Android Studio (or IntelliJ IDEA).
-
-### Option 2: Install Eclipse Plugin
-
-* Open Eclipse 4.5 (Mars) or later 
-* Open the Install New Software window from the the Help menu
-* Add the Multi-OS Engine plugin repository:
-
-    ```
-    https://dl.bintray.com/multi-os-engine/eclipse
-    ```
-
-* Install the Multi-OS Engine Plugin from the newly added repository
 
 ### Clone the samples repository from GitHub
 
@@ -108,3 +82,4 @@ For more information on code signing, visit the [installation documentation](/do
 * [Multi-OS Engine Documentation](/docs/)
 * [Multi-OS Engine Source Code](https://github.com/multi-os-engine/multi-os-engine)
 * [Join the Community Forum](https://discuss.multi-os-engine.org)
+* [Join the Discord Server](https://discord.gg/m5t3qNXTWj)
