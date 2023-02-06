@@ -30,9 +30,7 @@ learnmore:
               "
 needhelp:
   - title: 'Need Help?'
-    image_path: migeran-logo-200x200.png
-    image_width: 200px
-    excerpt: '[Migeran](https://migeran.com) is the project lead and core developer of Multi-OS Engine. We provide commercial support, custom development and training services.<br/><br/>[Contact Migeran](https://migeran.com/contact){: .btn .btn--large .btn--migeran-red}'
+    excerpt: 'Multi-os-engine is a community lead project. If you need help, you can join our discord or ask in our forum.<br/><br/>[Join Discord](https://discord.gg/m5t3qNXTWj){: .btn .btn--large .btn--migeran-red}   [Forum](https://discuss.multi-os-engine.org/){: .btn .btn--large .btn--migeran-red}'
 ---
 
 {% include button_nav %}
