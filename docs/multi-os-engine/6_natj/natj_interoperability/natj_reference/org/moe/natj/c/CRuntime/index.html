@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRuntime &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../../../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../../../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../../../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../../../../../../search/" />
+    <link rel="next" title="OpaquePtr" href="../OpaquePtr/" />
+    <link rel="prev" title="org.moe.natj.c" href="../package-index/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../3_getting_started/Getting_Started/">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../4_create_ui/create_ui/">Creating Your App’s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../5_using_thirdparty/using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../../../NatJ/">Nat/J library for Java to native binding</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../../../NatJ_Interoperability/">Nat/J: Interoperability with Native Code</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../NatJ_How_to/">Using the NatJ Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../../../NatJ_CornerCases/">Nat/J: Corner Cases</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../../../packages/">Nat/J: Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../natjgen_binding_generator/NatJGen_Binding_Generator/">Nat/J Binding Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../working_with_pointers/Working_With_Pointers/">Working with Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../../../toll_free_bridging/Toll_Free_Bridging/">Toll-Free Bridging</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://www.noisyfox.io/moe-native-types.html">Working with Native Types: Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../7_creating_db_app/creating_db_app/">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../9_game/game/">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../12_advanced/advanced/">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../../../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../../../../../../NatJ/">Nat/J library for Java to native binding</a></li>
+          <li class="breadcrumb-item"><a href="../../../../../../NatJ_Interoperability/">Nat/J: Interoperability with Native Code</a></li>
+          <li class="breadcrumb-item"><a href="../../../../../packages/">Nat/J: Reference</a></li>
+          <li class="breadcrumb-item"><a href="../package-index/">org.moe.natj.c</a></li>
+      <li class="breadcrumb-item active">CRuntime</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../../../../_sources/multi-os-engine/6_natj/natj_interoperability/natj_reference/org/moe/natj/c/CRuntime.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cruntime">
+<h1>CRuntime<a class="headerlink" href="#cruntime" title="Link to this heading">¶</a></h1>
+<section id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Link to this heading">¶</a></h2>
+<section id="boolean-size">
+<h3>BOOLEAN_SIZE<a class="headerlink" href="#boolean-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="byte-size">
+<h3>BYTE_SIZE<a class="headerlink" href="#byte-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="char-size">
+<h3>CHAR_SIZE<a class="headerlink" href="#char-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="double-size">
+<h3>DOUBLE_SIZE<a class="headerlink" href="#double-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="float-size">
+<h3>FLOAT_SIZE<a class="headerlink" href="#float-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="int-size">
+<h3>INT_SIZE<a class="headerlink" href="#int-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="long-size">
+<h3>LONG_SIZE<a class="headerlink" href="#long-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="native-long-size">
+<h3>NATIVE_LONG_SIZE<a class="headerlink" href="#native-long-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="native-wchart-size">
+<h3>NATIVE_WCHART_SIZE<a class="headerlink" href="#native-wchart-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="pointer-size">
+<h3>POINTER_SIZE<a class="headerlink" href="#pointer-size" title="Link to this heading">¶</a></h3>
+</section>
+<section id="short-size">
+<h3>SHORT_SIZE<a class="headerlink" href="#short-size" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+<section id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<section id="allocboolean">
+<h3>allocBoolean<a class="headerlink" href="#allocboolean" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocbyte">
+<h3>allocByte<a class="headerlink" href="#allocbyte" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocchar">
+<h3>allocChar<a class="headerlink" href="#allocchar" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocdouble">
+<h3>allocDouble<a class="headerlink" href="#allocdouble" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocfloat">
+<h3>allocFloat<a class="headerlink" href="#allocfloat" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocint">
+<h3>allocInt<a class="headerlink" href="#allocint" title="Link to this heading">¶</a></h3>
+</section>
+<section id="alloclong">
+<h3>allocLong<a class="headerlink" href="#alloclong" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocnativecallback">
+<h3>allocNativeCallback<a class="headerlink" href="#allocnativecallback" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocnativeobject">
+<h3>allocNativeObject<a class="headerlink" href="#allocnativeobject" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocpointer">
+<h3>allocPointer<a class="headerlink" href="#allocpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="allocshort">
+<h3>allocShort<a class="headerlink" href="#allocshort" title="Link to this heading">¶</a></h3>
+</section>
+<section id="cast">
+<h3>cast<a class="headerlink" href="#cast" title="Link to this heading">¶</a></h3>
+</section>
+<section id="id1">
+<h3>cast<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copybooleanarray">
+<h3>copyBooleanArray<a class="headerlink" href="#copybooleanarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copybytearray">
+<h3>copyByteArray<a class="headerlink" href="#copybytearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copychararray">
+<h3>copyCharArray<a class="headerlink" href="#copychararray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copydoublearray">
+<h3>copyDoubleArray<a class="headerlink" href="#copydoublearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfloatarray">
+<h3>copyFloatArray<a class="headerlink" href="#copyfloatarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativebooleanarray">
+<h3>copyFromNativeBooleanArray<a class="headerlink" href="#copyfromnativebooleanarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativebytearray">
+<h3>copyFromNativeByteArray<a class="headerlink" href="#copyfromnativebytearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativechararray">
+<h3>copyFromNativeCharArray<a class="headerlink" href="#copyfromnativechararray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativedoublearray">
+<h3>copyFromNativeDoubleArray<a class="headerlink" href="#copyfromnativedoublearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativefloatarray">
+<h3>copyFromNativeFloatArray<a class="headerlink" href="#copyfromnativefloatarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativeintarray">
+<h3>copyFromNativeIntArray<a class="headerlink" href="#copyfromnativeintarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativelongarray">
+<h3>copyFromNativeLongArray<a class="headerlink" href="#copyfromnativelongarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyfromnativeshortarray">
+<h3>copyFromNativeShortArray<a class="headerlink" href="#copyfromnativeshortarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyintarray">
+<h3>copyIntArray<a class="headerlink" href="#copyintarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copylongarray">
+<h3>copyLongArray<a class="headerlink" href="#copylongarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativebooleanarray">
+<h3>copyNativeBooleanArray<a class="headerlink" href="#copynativebooleanarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativebytearray">
+<h3>copyNativeByteArray<a class="headerlink" href="#copynativebytearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativechararray">
+<h3>copyNativeCharArray<a class="headerlink" href="#copynativechararray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativedoublearray">
+<h3>copyNativeDoubleArray<a class="headerlink" href="#copynativedoublearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativefloatarray">
+<h3>copyNativeFloatArray<a class="headerlink" href="#copynativefloatarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativeintarray">
+<h3>copyNativeIntArray<a class="headerlink" href="#copynativeintarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativelongarray">
+<h3>copyNativeLongArray<a class="headerlink" href="#copynativelongarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativeobject">
+<h3>copyNativeObject<a class="headerlink" href="#copynativeobject" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativeobjectarray">
+<h3>copyNativeObjectArray<a class="headerlink" href="#copynativeobjectarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copynativeshortarray">
+<h3>copyNativeShortArray<a class="headerlink" href="#copynativeshortarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copypointerarray">
+<h3>copyPointerArray<a class="headerlink" href="#copypointerarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="copyshortarray">
+<h3>copyShortArray<a class="headerlink" href="#copyshortarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createbooleanarray">
+<h3>createBooleanArray<a class="headerlink" href="#createbooleanarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createbytearray">
+<h3>createByteArray<a class="headerlink" href="#createbytearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createchararray">
+<h3>createCharArray<a class="headerlink" href="#createchararray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createdoublearray">
+<h3>createDoubleArray<a class="headerlink" href="#createdoublearray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createfloatarray">
+<h3>createFloatArray<a class="headerlink" href="#createfloatarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createintarray">
+<h3>createIntArray<a class="headerlink" href="#createintarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createjavacallback">
+<h3>createJavaCallback<a class="headerlink" href="#createjavacallback" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createjavastring">
+<h3>createJavaString<a class="headerlink" href="#createjavastring" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createlongarray">
+<h3>createLongArray<a class="headerlink" href="#createlongarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createnativestring">
+<h3>createNativeString<a class="headerlink" href="#createnativestring" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createnativestringarray">
+<h3>createNativeStringArray<a class="headerlink" href="#createnativestringarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createshortarray">
+<h3>createShortArray<a class="headerlink" href="#createshortarray" title="Link to this heading">¶</a></h3>
+</section>
+<section id="createstrongpointer">
+<h3>createStrongPointer<a class="headerlink" href="#createstrongpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="deallocnativecallback">
+<h3>deallocNativeCallback<a class="headerlink" href="#deallocnativecallback" title="Link to this heading">¶</a></h3>
+</section>
+<section id="doregistration">
+<h3>doRegistration<a class="headerlink" href="#doregistration" title="Link to this heading">¶</a></h3>
+</section>
+<section id="free">
+<h3>free<a class="headerlink" href="#free" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getbytebufferpointer">
+<h3>getByteBufferPointer<a class="headerlink" href="#getbytebufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getcharbufferpointer">
+<h3>getCharBufferPointer<a class="headerlink" href="#getcharbufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getdefaultunboxpolicy">
+<h3>getDefaultUnboxPolicy<a class="headerlink" href="#getdefaultunboxpolicy" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getdoublebufferpointer">
+<h3>getDoubleBufferPointer<a class="headerlink" href="#getdoublebufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getfloatbufferpointer">
+<h3>getFloatBufferPointer<a class="headerlink" href="#getfloatbufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getintbufferpointer">
+<h3>getIntBufferPointer<a class="headerlink" href="#getintbufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getlongbufferpointer">
+<h3>getLongBufferPointer<a class="headerlink" href="#getlongbufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="getshortbufferpointer">
+<h3>getShortBufferPointer<a class="headerlink" href="#getshortbufferpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadboolean">
+<h3>loadBoolean<a class="headerlink" href="#loadboolean" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadbyte">
+<h3>loadByte<a class="headerlink" href="#loadbyte" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadchar">
+<h3>loadChar<a class="headerlink" href="#loadchar" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loaddouble">
+<h3>loadDouble<a class="headerlink" href="#loaddouble" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadfloat">
+<h3>loadFloat<a class="headerlink" href="#loadfloat" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadint">
+<h3>loadInt<a class="headerlink" href="#loadint" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadlong">
+<h3>loadLong<a class="headerlink" href="#loadlong" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadpointer">
+<h3>loadPointer<a class="headerlink" href="#loadpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="loadshort">
+<h3>loadShort<a class="headerlink" href="#loadshort" title="Link to this heading">¶</a></h3>
+</section>
+<section id="memcpy">
+<h3>memcpy<a class="headerlink" href="#memcpy" title="Link to this heading">¶</a></h3>
+</section>
+<section id="id2">
+<h3>memcpy<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+</section>
+<section id="memset">
+<h3>memset<a class="headerlink" href="#memset" title="Link to this heading">¶</a></h3>
+</section>
+<section id="id3">
+<h3>memset<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+</section>
+<section id="sizeoflong">
+<h3>sizeOfLong<a class="headerlink" href="#sizeoflong" title="Link to this heading">¶</a></h3>
+</section>
+<section id="sizeofnativeobject">
+<h3>sizeOfNativeObject<a class="headerlink" href="#sizeofnativeobject" title="Link to this heading">¶</a></h3>
+</section>
+<section id="sizeofpointer">
+<h3>sizeOfPointer<a class="headerlink" href="#sizeofpointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="sizeofwchart">
+<h3>sizeOfWCharT<a class="headerlink" href="#sizeofwchart" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storeboolean">
+<h3>storeBoolean<a class="headerlink" href="#storeboolean" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storebyte">
+<h3>storeByte<a class="headerlink" href="#storebyte" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storechar">
+<h3>storeChar<a class="headerlink" href="#storechar" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storedouble">
+<h3>storeDouble<a class="headerlink" href="#storedouble" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storefloat">
+<h3>storeFloat<a class="headerlink" href="#storefloat" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storeint">
+<h3>storeInt<a class="headerlink" href="#storeint" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storelong">
+<h3>storeLong<a class="headerlink" href="#storelong" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storepointer">
+<h3>storePointer<a class="headerlink" href="#storepointer" title="Link to this heading">¶</a></h3>
+</section>
+<section id="storeshort">
+<h3>storeShort<a class="headerlink" href="#storeshort" title="Link to this heading">¶</a></h3>
+</section>
+<section id="trytodisposecallback">
+<h3>tryToDisposeCallback<a class="headerlink" href="#trytodisposecallback" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../package-index/" class="btn btn-neutral float-left" title="org.moe.natj.c" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../OpaquePtr/" class="btn btn-neutral float-right" title="OpaquePtr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../../../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>

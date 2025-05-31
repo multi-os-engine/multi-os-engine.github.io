@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2 &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" />
+    <link rel="next" title="Accessing Web Services" href="../../../8_accessWebServices/accessWebServices/" />
+    <link rel="prev" title="Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1" href="../../1_part1/part1/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3_getting_started/Getting_Started/">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../4_create_ui/create_ui/">Creating Your App’s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../5_using_thirdparty/using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../6_natj/NatJ/">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../creating_db_app/">Creating a Database App</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../1_part1/part1/">Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ios-specific-code">iOS Specific Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#android-specific-code">Android Specific Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../9_game/game/">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../12_advanced/advanced/">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../creating_db_app/">Creating a Database App</a></li>
+      <li class="breadcrumb-item active">Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/multi-os-engine/7_creating_db_app/2_part2/part2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="working-with-persistent-storage-using-the-multi-os-engine-technology-preview-part-2">
+<h1>Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 2<a class="headerlink" href="#working-with-persistent-storage-using-the-multi-os-engine-technology-preview-part-2" title="Link to this heading">¶</a></h1>
+<p>This is the second part of a two-part tutorial that shows how to do persistent storage in Apple iOS* with Java* using Intel’s Multi-OS Engine Technology Preview. This part adds SQLite* functionality to our app created using the first tutorial part.</p>
+<p>We will show how to use SQLite library using the Multi-OS Engine for both Android* and iOS by generating bindings for the sqlite.h file and how to access them. The first part of this tutorial can be found here. Building on the app from part 1, download sqlite3.h from the SQLite website and copy it to our common library directory.</p>
+<img alt="../../../../_images/part21.png" src="../../../../_images/part21.png" />
+<p>To generate Java bindings from C header files, click the Generate Bindings button as shown.</p>
+<img alt="../../../../_images/part22.png" src="../../../../_images/part22.png" />
+<p>The Multi-OS Engine creates a new directory to contain all the NatJ bindings related to the SQLite. We will use these bindings to create database instance and run our database CRUD operations common to both platforms.</p>
+<img alt="../../../../_images/part23.png" src="../../../../_images/part23.png" />
+<p>Here we will add an annotation &#64;Library(“sqlite3”) to our generated class file. The &#64;Library annotation specifies the name of the native library that needs to be loaded for the marked class to work. More specifically, when NatJ.register() is invoked, NatJ will search for this annotation in the invoker class, and try to load the specified library with NatJ.lookUpLibrary(…).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Library</span><span class="p">(</span><span class="s2">&quot;sqlite3&quot;</span><span class="p">)</span>
+<span class="nd">@Runtime</span><span class="p">(</span><span class="n">CRuntime</span><span class="o">.</span><span class="n">class</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">final</span> <span class="k">class</span><span class="w"> </span><span class="nc">Globals</span> <span class="p">{</span>
+<span class="n">static</span> <span class="p">{</span>
+        <span class="n">NatJ</span><span class="o">.</span><span class="n">register</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also, we need the Multi-OS Engine’s NatJ bindings to access native C pointers. To do this, add natj-api.jar library as dependency to the common library folder. This jar can be found in the GitHub* project and you can directly import it into your project.</p>
+<p>Next, we create a Note class that will be our data model for the database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Note</span> <span class="n">implements</span> <span class="n">Comparable</span><span class="o">&lt;</span><span class="n">Note</span><span class="o">&gt;</span><span class="p">{</span>
+<span class="n">private</span> <span class="n">Integer</span> <span class="nb">id</span><span class="p">;</span>
+        <span class="n">private</span> <span class="n">String</span> <span class="n">note</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">setId</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">){</span>
+        <span class="nb">id</span> <span class="o">=</span><span class="n">i</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">Integer</span> <span class="n">getId</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="nb">id</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">setNote</span><span class="p">(</span><span class="n">String</span> <span class="n">s</span><span class="p">){</span>
+        <span class="n">note</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">String</span> <span class="n">getNote</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="n">note</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="nb">int</span> <span class="n">compareTo</span><span class="p">(</span><span class="n">Note</span> <span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">compareTo</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">id</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now let’s create common code to create and manage the database and to store the note contents.</p>
+<p>SQLiteDatabaseHelper.java is used to open and close database instance. In its constructor directory path of the database file is passed which will be platform specific. Its onCreate method creates a new notes table if it already doesn’t exists.</p>
+<p>The Database.java class handles the insertion, deletion, update and selection queries. The methods of this class abstracts the native SQLite operations. For example, here is the insertion query.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">insert</span><span class="p">(</span><span class="n">String</span> <span class="n">note</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">StringBuilder</span> <span class="n">sql</span> <span class="o">=</span> <span class="n">new</span> <span class="n">StringBuilder</span><span class="p">();</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;INSERT&quot;</span><span class="p">);</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; INTO &quot;</span><span class="p">);</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TABLE</span><span class="p">);</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; (note) values (&quot;</span><span class="p">);</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">);</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">note</span><span class="p">);</span>
+    <span class="n">sql</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">)&quot;</span><span class="p">);</span>
+    <span class="n">execSQL</span><span class="p">(</span><span class="n">sql</span><span class="o">.</span><span class="n">toString</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The execSQL method prepares SQL statement to execute SQL queries.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>@Override
+public void execSQL(String statement) {
+        SQLiteStatement stmt = new SQLiteStatement(statement, null);
+        if (stmt.prepare(dbHandle)) {
+                if (!stmt.exec()) {
+                        System.err.println(&quot;Error executing - &quot; + stmt.getLastError());
+                }
+        } else {
+                System.err.println(&quot;Error executing - &quot; + stmt.getLastError());
+                System.err.println(&quot;\tin: &quot; + stmt.getStatement());
+        }
+}
+</pre></div>
+</div>
+<p>The SQLiteStatement.java handles the native routines of the SQLite libraries like prepare(), exec(), query(), strep(), close(). This class uses the native C API calls that were generated using the binding generator. The following snippets show how prepare() and exec() methods are implemented.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">boolean</span> <span class="n">prepare</span><span class="p">(</span><span class="n">VoidPtr</span> <span class="n">dbHandle</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">dbHandle</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">throw</span> <span class="n">new</span> <span class="n">NullPointerException</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">dbHandle</span> <span class="o">=</span> <span class="n">dbHandle</span><span class="p">;</span>
+        <span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s2">&quot;unchecked&quot;</span><span class="p">)</span>
+        <span class="n">Ptr</span><span class="o">&lt;</span><span class="n">VoidPtr</span><span class="o">&gt;</span> <span class="n">stmtRef</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">VoidPtr</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">PtrFactory</span><span class="o">.</span><span class="n">newPointerPtr</span><span class="p">(</span>
+                        <span class="n">Void</span><span class="o">.</span><span class="n">class</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+        <span class="nb">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_prepare_v2</span><span class="p">(</span><span class="n">dbHandle</span><span class="p">,</span> <span class="n">statement</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">stmtRef</span><span class="p">,</span>
+                        <span class="n">null</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">lastError</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_errmsg</span><span class="p">(</span><span class="n">dbHandle</span><span class="p">);</span>
+                <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">stmtHandle</span> <span class="o">=</span> <span class="n">stmtRef</span><span class="o">.</span><span class="n">get</span><span class="p">();</span>
+        <span class="nb">int</span> <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">Object</span> <span class="n">bind</span> <span class="p">:</span> <span class="n">bindArgs</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">idx</span><span class="o">++</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">bind</span> <span class="n">instanceof</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_bind_text</span><span class="p">(</span><span class="n">stmtHandle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="n">bind</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">new</span> <span class="n">Globals</span><span class="o">.</span><span class="n">Function_sqlite3_bind_text</span><span class="p">(){</span>
+                                <span class="nd">@Override</span>
+                                <span class="n">public</span> <span class="n">void</span> <span class="n">call_sqlite3_bind_text</span><span class="p">(</span><span class="n">VoidPtr</span> <span class="n">arg0</span><span class="p">){}</span>
+                        <span class="p">});</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">bind</span> <span class="n">instanceof</span> <span class="n">Integer</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_bind_int</span><span class="p">(</span><span class="n">stmtHandle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span>  <span class="p">(</span><span class="n">Integer</span><span class="p">)</span> <span class="n">bind</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">bind</span> <span class="n">instanceof</span> <span class="n">Long</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_bind_int64</span><span class="p">(</span><span class="n">stmtHandle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span>  <span class="p">(</span><span class="n">Long</span><span class="p">)</span> <span class="n">bind</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">bind</span> <span class="n">instanceof</span> <span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_bind_double</span><span class="p">(</span><span class="n">stmtHandle</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span>  <span class="p">(</span><span class="n">Double</span><span class="p">)</span> <span class="n">bind</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">bind</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_bind_null</span><span class="p">(</span><span class="n">stmtHandle</span><span class="p">,</span> <span class="n">idx</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">lastError</span> <span class="o">=</span> <span class="s2">&quot;No implemented SQLite3 bind function found for &quot;</span> <span class="o">+</span> <span class="n">bind</span><span class="o">.</span><span class="n">getClass</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">();</span>
+                        <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">lastError</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_errmsg</span><span class="p">(</span><span class="n">dbHandle</span><span class="p">);</span>
+                        <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">public</span> <span class="n">boolean</span> <span class="n">exec</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">stmtHandle</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">throw</span> <span class="n">new</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s2">&quot;statement handle is closed&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="o">//</span><span class="n">LOG</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Execing &quot;</span> <span class="o">+</span> <span class="n">statement</span><span class="p">);</span>
+        <span class="nb">int</span> <span class="n">err</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_step</span><span class="p">(</span><span class="n">stmtHandle</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">==</span> <span class="mi">101</span> <span class="o">/*</span> <span class="n">SQLITE_DONE</span> <span class="o">*/</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">affectedCount</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_changes</span><span class="p">(</span><span class="n">dbHandle</span><span class="p">);</span>
+                <span class="n">lastInsertedID</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_last_insert_rowid</span><span class="p">(</span><span class="n">dbHandle</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">close</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">err</span> <span class="o">!=</span> <span class="mi">101</span> <span class="o">/*</span> <span class="n">SQLITE_DONE</span> <span class="o">*/</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">lastError</span> <span class="o">=</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_errmsg</span><span class="p">(</span><span class="n">dbHandle</span><span class="p">);</span>
+                <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Based on this, we can implement different methods of the sqlite statement class.</p>
+<p>The SQLiteCursor.java class handles the data extraction APIs from the statement class. Following are methods to get integer and string values from the query executed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">String</span> <span class="n">getString</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">stmt</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">throw</span> <span class="n">new</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s2">&quot;statement is closed&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_column_text</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">getStmtHandle</span><span class="p">(),</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="nb">int</span> <span class="n">getInt</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">stmt</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">throw</span> <span class="n">new</span> <span class="n">RuntimeException</span><span class="p">(</span><span class="s2">&quot;statement is closed&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">Globals</span><span class="o">.</span><span class="n">sqlite3_column_int</span><span class="p">(</span><span class="n">stmt</span><span class="o">.</span><span class="n">getStmtHandle</span><span class="p">(),</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Android has its own version of SQLite that has a slightly different implementation than the native one. This limits our ability to reuse the code between the platforms. For this reason, we will build our own custom version of SQLite for Android using NatJ bindings. A dynamic shared object library of the native SQLite is created which is linked at runtime so Android could handle the native C calls of SQLite. Along with the sqlite.so library, two more libraries are linked with the project. They are libnatj.so and libc++_shared.so. The libnatj.so is a NatJ bridge to work with the NatJ calls of Multi-OS Engine. The libc++_shared.so is shipped to support Android 4.x. It is not needed for Android 5.x.</p>
+<img alt="../../../../_images/part24.png" src="../../../../_images/part24.png" />
+<p>In the build.gradle file, we have to make changes so that we can use of the .so native libs.</p>
+<p>First we have to specify the src directory for jnilibs in the sourceSets</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">sourceSets</span> <span class="p">{</span>
+    <span class="n">main</span> <span class="p">{</span>
+        <span class="n">manifest</span><span class="o">.</span><span class="n">srcFile</span> <span class="s1">&#39;src/main/AndroidManifest.xml&#39;</span>
+        <span class="n">java</span><span class="o">.</span><span class="n">srcDir</span> <span class="s1">&#39;src&#39;</span>
+        <span class="n">res</span><span class="o">.</span><span class="n">srcDir</span> <span class="s1">&#39;res&#39;</span>
+        <span class="n">assets</span><span class="o">.</span><span class="n">srcDir</span> <span class="s1">&#39;assets&#39;</span>
+        <span class="n">jniLibs</span><span class="o">.</span><span class="n">srcDir</span> <span class="s1">&#39;src/main/native-libs&#39;</span>
+        <span class="n">jni</span><span class="o">.</span><span class="n">srcDirs</span> <span class="o">=</span> <span class="p">[]</span>           <span class="o">//</span><span class="n">disable</span> <span class="n">automatic</span> <span class="n">ndk</span><span class="o">-</span><span class="n">build</span> <span class="n">call</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Next we create jar file of the native libs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">task</span> <span class="n">nativeLibsToJar</span><span class="p">(</span><span class="nb">type</span><span class="p">:</span> <span class="n">Zip</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="s1">&#39;create a jar archive of the native libs&#39;</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">destinationDir</span> <span class="n">file</span><span class="p">(</span><span class="s2">&quot;$buildDir/native-libs&quot;</span><span class="p">)</span>
+<span class="n">baseName</span> <span class="s1">&#39;native-libs&#39;</span>
+<span class="n">extension</span> <span class="s1">&#39;jar&#39;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fileTree</span><span class="p">(</span><span class="nb">dir</span><span class="p">:</span> <span class="s1">&#39;src/main/native-libs&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="s1">&#39;**/*.so&#39;</span><span class="p">)</span>
+<span class="n">into</span> <span class="s1">&#39;lib/&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We compile and build that jar:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tasks</span><span class="o">.</span><span class="n">withType</span><span class="p">(</span><span class="n">org</span><span class="o">.</span><span class="n">gradle</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">compile</span><span class="o">.</span><span class="n">JavaCompile</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">compileTask</span> <span class="o">-&gt;</span> <span class="n">compileTask</span><span class="o">.</span><span class="n">dependsOn</span> <span class="n">nativeLibsToJar</span>
+<span class="p">}</span>
+<span class="n">clean</span><span class="o">.</span><span class="n">dependsOn</span> <span class="s1">&#39;cleanCopyNativeLibs&#39;</span>
+<span class="n">tasks</span><span class="o">.</span><span class="n">withType</span><span class="p">(</span><span class="n">com</span><span class="o">.</span><span class="n">android</span><span class="o">.</span><span class="n">build</span><span class="o">.</span><span class="n">gradle</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">PackageApplication</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">pkgTask</span> <span class="o">-&gt;</span>
+        <span class="n">pkgTask</span><span class="o">.</span><span class="n">jniFolders</span> <span class="o">=</span> <span class="n">new</span> <span class="n">HashSet</span><span class="p">()</span>
+        <span class="n">pkgTask</span><span class="o">.</span><span class="n">jniFolders</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new</span> <span class="n">File</span><span class="p">(</span><span class="n">buildDir</span><span class="p">,</span> <span class="s1">&#39;native-libs&#39;</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>iOS has a built-in SQLite native version which can be directly used without any linking of libraries.</p>
+<p>Next we create platform specific code for iOS and Android to make the database calls.</p>
+<section id="ios-specific-code">
+<h2>iOS Specific Code<a class="headerlink" href="#ios-specific-code" title="Link to this heading">¶</a></h2>
+<p>A SQLiteDatabaseHelper class is created which extends the SQLiteDatabaseHelper common class. Only the getDocumentsPath() method of this class is overridden to get the iOS specific documents directory path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="n">protected</span> <span class="n">String</span> <span class="n">getDocumentsPath</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">NSArray</span> <span class="n">paths</span> <span class="o">=</span> <span class="n">Foundation</span><span class="o">.</span><span class="n">NSSearchPathForDirectoriesInDomains</span><span class="p">(</span>
+                        <span class="n">NSSearchPathDirectory</span><span class="o">.</span><span class="n">DocumentDirectory</span><span class="p">,</span>
+                        <span class="n">NSSearchPathDomainMask</span><span class="o">.</span><span class="n">UserDomainMask</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span> <span class="n">paths</span><span class="o">.</span><span class="n">firstObject</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In the viewDidLoad() method of MasterViewController, an instance of databasehelper is created in whose constructor filepath of the database is passed. An instance of Database is created and its reference is retrieved by getWritableDatabase() method.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Override</span>
+<span class="nd">@Selector</span><span class="p">(</span><span class="s2">&quot;viewDidLoad&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Do</span> <span class="nb">any</span> <span class="n">additional</span> <span class="n">setup</span> <span class="n">after</span> <span class="n">loading</span> <span class="n">the</span> <span class="n">view</span><span class="p">,</span> <span class="n">typically</span> <span class="kn">from</span><span class="w"> </span><span class="nn">a</span> <span class="n">nib</span><span class="o">.</span>
+        <span class="n">navigationItem</span><span class="p">()</span><span class="o">.</span><span class="n">setLeftBarButtonItem</span><span class="p">(</span><span class="n">editButtonItem</span><span class="p">());</span>
+        <span class="n">ISQLiteDatabaseHelper</span> <span class="n">helper</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SQLiteDatabaseHelper</span><span class="p">(</span><span class="n">dbFileName</span><span class="p">);</span>
+        <span class="n">db</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">getWritableDatabase</span><span class="p">();</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>A listener method is added to the add button in which we execute database insertion query.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@Selector</span><span class="p">(</span><span class="s2">&quot;insertNewObject:&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">insertNewObject</span><span class="p">(</span><span class="n">Object</span> <span class="n">sender</span><span class="p">){</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">defaultText</span><span class="p">);</span>
+    <span class="n">makeObjects</span><span class="p">();</span>
+    <span class="n">NSIndexPath</span> <span class="n">indexPath</span> <span class="o">=</span> <span class="n">NSIndexPath</span><span class="o">.</span><span class="n">indexPathForRowInSection</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">tableView</span><span class="p">()</span><span class="o">.</span><span class="n">insertRowsAtIndexPathsWithRowAnimation</span><span class="p">((</span><span class="n">NSArray</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">.</span><span class="n">arrayWithObject</span><span class="p">(</span><span class="n">indexPath</span><span class="p">),</span> <span class="n">UITableViewRowAnimation</span><span class="o">.</span><span class="n">Automatic</span><span class="p">);</span>
+    <span class="n">performSegueWithIdentifierSender</span><span class="p">(</span><span class="s2">&quot;showDetail&quot;</span><span class="p">,</span> <span class="n">this</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In DetailViewController, changes to the default text are updated with the update API call and note is deleted if the text is left blank.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    @Selector(&quot;doSaveNote:&quot;)
+public void doSaveNote( Object sender){
+    if (detailNote == null || db == null) {
+        return;
+    }
+    if(!dataText.text().equals(&quot;&quot;)){
+        detailNote.setNote(dataText.text());
+        db.update(detailNote);
+    }else{
+        db.delete(detailNote.getId());
+    }
+}
+</pre></div>
+</div>
+</section>
+<section id="android-specific-code">
+<h2>Android Specific Code<a class="headerlink" href="#android-specific-code" title="Link to this heading">¶</a></h2>
+<p>Like iOS, an AndroidDatabaseHelper class is created which overrides the getDocumentsPath() to pass the directory path of the Android SQLite file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="n">protected</span> <span class="n">String</span> <span class="n">getDocumentsPath</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Environment</span><span class="o">.</span><span class="n">getExternalStorageDirectory</span><span class="p">()</span><span class="o">.</span><span class="n">getPath</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also similar to iOS, the databasehelper and database instances are created in the iOS counterpart of viewDidLoad() method (in onCreate() method of MainActivity.java).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="nd">@Override</span>
+<span class="n">protected</span> <span class="n">void</span> <span class="n">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">super</span><span class="o">.</span><span class="n">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
+    <span class="n">setContentView</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">activity_main</span><span class="p">);</span>
+    <span class="n">SQLiteDatabaseHelper</span> <span class="n">dbHelper</span> <span class="o">=</span> <span class="n">new</span> <span class="n">AndroidSQLiteDatabaseHelper</span><span class="p">(</span><span class="n">AndroidSQLiteDatabaseHelper</span><span class="o">.</span><span class="n">DB_NAME</span><span class="p">);</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">dbHelper</span><span class="o">.</span><span class="n">getWritableDatabase</span><span class="p">();</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>The listener method is added to the add button method to insert in the database.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">public</span> <span class="n">void</span> <span class="n">insertNewObject</span><span class="p">()</span> <span class="p">{</span>
+   <span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">DEFAULT_TEXT</span><span class="p">);</span>
+   <span class="n">makeObjects</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>EditorActivity.java calls the update and delete queries according to the user input.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    private void finishEditing() {
+    String newText = editor.getText().toString().trim();
+    if(newText.equals(&quot;&quot;)){
+        newText = DEFAULT_TEXT;
+        db.delete(noteId);
+    }
+    else if(!newText.equals(note)){
+        noteDetail.setNote(newText);
+        db.update(noteDetail);
+    }
+    finish();
+}
+</pre></div>
+</div>
+<p>Run the app so you can see the database files created in your respective platforms.</p>
+<p>This method allows the business logic of the code can be reused on both the platforms using the same implementation of SQLite. This definitely saves a lot of coding effort and helps minimize code maintenance.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../1_part1/part1/" class="btn btn-neutral float-left" title="Working with Persistent Storage Using the Multi-OS Engine Technology Preview - Part 1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../8_accessWebServices/accessWebServices/" class="btn btn-neutral float-right" title="Accessing Web Services" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>

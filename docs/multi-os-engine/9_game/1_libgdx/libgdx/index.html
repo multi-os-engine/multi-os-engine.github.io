@@ -1,0 +1,974 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using LibGDX &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" />
+    <link rel="next" title="Building your OpenGL App with Multi-OS Engine" href="../../2_opengl/opengl/" />
+    <link rel="prev" title="Creating a Game App" href="../../game/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3_getting_started/Getting_Started/">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../4_create_ui/create_ui/">Creating Your App’s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../5_using_thirdparty/using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../6_natj/NatJ/">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../7_creating_db_app/creating_db_app/">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../game/">Creating a Game App</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using LibGDX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-your-environment">Set Up Your Environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generating-a-new-project">Generating a new project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#develop-your-app">Develop Your App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#core-code-part">Core Code Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#android-code-part">Android Code Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#asset-part">Asset Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ios-code-part">iOS Code Part</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-your-app">Debug Your App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary-and-resources">Summary and Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../2_opengl/opengl/">Building your OpenGL App with Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../12_advanced/advanced/">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../game/">Creating a Game App</a></li>
+      <li class="breadcrumb-item active">Using LibGDX</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/multi-os-engine/9_game/1_libgdx/libgdx.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-libgdx">
+<h1>Using LibGDX<a class="headerlink" href="#using-libgdx" title="Link to this heading">¶</a></h1>
+<p>This page shows you how you can create a Java* game using Multi-OS Engine and the libGDX library.</p>
+<dl>
+<dt>Contents:</dt><dd><p><a class="reference internal" href="#set-up-your-environment">Set Up Your Environment</a></p>
+<p><a class="reference internal" href="#develop-your-app">Develop Your App</a></p>
+<p><a class="reference internal" href="#debug-your-app">Debug Your App</a></p>
+<p><a class="reference internal" href="#summary-and-resources">Summary and Resources</a></p>
+</dd>
+</dl>
+<p>The screen shots below show the game running on an Android* device and an Apple iOS* device. On both operating systems, the game looks and behaves the same way. How is this achieved?</p>
+<p>If you are not yet familiar with libGDX, this tutorial will help you start from scratch. So let’s begin. Scroll down!</p>
+<img alt="../../../../_images/libgdx1.png" src="../../../../_images/libgdx1.png" />
+<img alt="../../../../_images/libgdx2.png" src="../../../../_images/libgdx2.png" />
+<section id="set-up-your-environment">
+<h2>Set Up Your Environment<a class="headerlink" href="#set-up-your-environment" title="Link to this heading">¶</a></h2>
+<p>First, install these applications:</p>
+<ul class="simple">
+<li><p>Git</p></li>
+<li><p>Android Studio</p></li>
+<li><p>Multi-OS Engine, a plugin for Android Studio</p></li>
+</ul>
+<p>You need to add Git to your system path.</p>
+</section>
+<section id="generating-a-new-project">
+<h2>Generating a new project<a class="headerlink" href="#generating-a-new-project" title="Link to this heading">¶</a></h2>
+<p>Download the newest release of [gdx-liftoff](<a class="reference external" href="https://github.com/tommyettinger/gdx-liftoff">https://github.com/tommyettinger/gdx-liftoff</a>).
+Run the jar and configure the project. Make sure to select “iOS Multi-OS Engine” as backend, not iOS!</p>
+<img alt="../../../../_images/libgdx3.png" src="../../../../_images/libgdx3.png" />
+</section>
+<section id="develop-your-app">
+<h2>Develop Your App<a class="headerlink" href="#develop-your-app" title="Link to this heading">¶</a></h2>
+<p>Open the generated project in Android Studio.</p>
+<img alt="../../../../_images/libgdx4.png" src="../../../../_images/libgdx4.png" />
+<p>So, we imported our project! Now let’s develop the common part for our application.</p>
+</section>
+<section id="core-code-part">
+<h2>Core Code Part<a class="headerlink" href="#core-code-part" title="Link to this heading">¶</a></h2>
+<p>First of all, create in the Core part a class called Assets for loading resources.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Gdx</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.audio.Sound</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.files.FileHandle</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.Texture</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Animation</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.TextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Assets</span> <span class="p">{</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">final</span> <span class="nb">float</span> <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">final</span> <span class="nb">float</span> <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">480</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Backgrounds</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">backgroundRegionMenu</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">backgroundLoadGame1TextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">backgroundLoadGame2TextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span><span class="p">[]</span> <span class="n">levelsBackgroundsTextureRegions</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="o">//</span> <span class="n">Buttons</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">backButtonTextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">pauseButtonTextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">startButtonTextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">creditsButtonTextureRegion</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Player</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">playerBaseTextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">playerGunTextureRegion</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Missiles</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">missileTextureRegion</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">Sound</span> <span class="n">missileSound</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Explosions</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">Animation</span><span class="o">&lt;</span><span class="n">TextureRegion</span><span class="o">&gt;</span> <span class="n">explosionAnimation</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">Sound</span> <span class="n">explosionSound</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Cities</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">Animation</span><span class="o">&lt;</span><span class="n">TextureRegion</span><span class="o">&gt;</span> <span class="n">citiesDestroyAnimation</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span><span class="p">[]</span> <span class="n">citiesTextureRegions</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+<span class="o">//</span> <span class="n">Naves</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">TextureRegion</span> <span class="n">navesTextureRegion</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Font</span> <span class="n">file</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">FileHandle</span> <span class="n">fontFile</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">Sound</span> <span class="n">alarmSound</span><span class="p">;</span>
+<span class="n">private</span> <span class="n">static</span> <span class="n">Texture</span> <span class="n">loadTexture</span> <span class="p">(</span><span class="n">String</span> <span class="n">file</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">new</span> <span class="n">Texture</span><span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">internal</span><span class="p">(</span><span class="n">file</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">load</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Texture</span> <span class="n">backgroundMenuTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;Splash2.png&quot;</span><span class="p">);</span>
+        <span class="n">backgroundRegionMenu</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">backgroundMenuTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">480</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">backgroundLoadGame1Texture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;aviso1.png&quot;</span><span class="p">);</span>
+        <span class="n">backgroundLoadGame1TextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">backgroundLoadGame1Texture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">480</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">backgroundLoadGame2Texture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;aviso2.png&quot;</span><span class="p">);</span>
+        <span class="n">backgroundLoadGame2TextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">backgroundLoadGame2Texture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">480</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">levelsBackgroundsTextureRegions</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Texture</span> <span class="n">backgroundLevelTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;bg&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="o">.</span><span class="n">valueOf</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">);</span>
+        <span class="n">levelsBackgroundsTextureRegions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">backgroundLevelTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">480</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">Texture</span> <span class="n">startButtonTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;btStart.png&quot;</span><span class="p">);</span>
+        <span class="n">startButtonTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">startButtonTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">43</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">creditsButtonTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;btCredits.png&quot;</span><span class="p">);</span>
+        <span class="n">creditsButtonTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">creditsButtonTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">43</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">backButtonTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;btBack.png&quot;</span><span class="p">);</span>
+        <span class="n">backButtonTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">backButtonTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">43</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">pauseButtonTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;btPause.png&quot;</span><span class="p">);</span>
+        <span class="n">pauseButtonTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">pauseButtonTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">22</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">playerBaseTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;canhaopart1.png&quot;</span><span class="p">);</span>
+        <span class="n">playerBaseTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">playerBaseTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">45</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">playerGunTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;canhaopart2.png&quot;</span><span class="p">);</span>
+        <span class="n">playerGunTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">playerGunTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">45</span><span class="p">);</span>
+        <span class="n">Texture</span> <span class="n">missileTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;missil.png&quot;</span><span class="p">);</span>
+        <span class="n">missileTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">missileTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">citiesTextureRegions</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Texture</span> <span class="n">cityTexture</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;city&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="o">.</span><span class="n">valueOf</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">);</span>
+        <span class="n">citiesTextureRegions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">cityTexture</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">Texture</span> <span class="n">citiesDestroy</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;cidade.png&quot;</span><span class="p">);</span>
+        <span class="n">citiesDestroyAnimation</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Animation</span><span class="p">(</span><span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">citiesDestroy</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">53</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">59</span><span class="p">),</span>
+                <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">citiesDestroy</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">15</span><span class="p">));</span>
+    <span class="n">fontFile</span> <span class="o">=</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">classpath</span><span class="p">(</span><span class="s2">&quot;com/badlogic/gdx/utils/lsans-15.fnt&quot;</span><span class="p">);</span>
+        <span class="n">alarmSound</span> <span class="o">=</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">newSound</span><span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">internal</span><span class="p">(</span><span class="s2">&quot;alarm.mp3&quot;</span><span class="p">));</span>
+        <span class="n">missileSound</span> <span class="o">=</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">newSound</span><span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">internal</span><span class="p">(</span><span class="s2">&quot;missil.mp3&quot;</span><span class="p">));</span>
+        <span class="n">Texture</span> <span class="n">explosion</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;explosao1.png&quot;</span><span class="p">);</span>
+        <span class="n">explosionAnimation</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Animation</span><span class="p">(</span><span class="mf">0.2</span><span class="n">f</span><span class="p">,</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">22</span><span class="p">),</span>
+                <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">38</span><span class="p">),</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">56</span><span class="p">),</span>
+                <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">137</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">76</span><span class="p">),</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">74</span><span class="p">,</span><span class="mi">68</span><span class="p">),</span>
+                <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">83</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">72</span><span class="p">,</span><span class="mi">68</span><span class="p">),</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">156</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">68</span><span class="p">,</span><span class="mi">62</span><span class="p">),</span>
+                <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">154</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">60</span><span class="p">),</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">explosion</span><span class="p">,</span><span class="mi">71</span><span class="p">,</span><span class="mi">154</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">56</span><span class="p">));</span>
+        <span class="n">explosionSound</span> <span class="o">=</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">newSound</span><span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">internal</span><span class="p">(</span><span class="s2">&quot;bomb.mp3&quot;</span><span class="p">));</span>
+        <span class="n">Texture</span> <span class="n">nave</span> <span class="o">=</span> <span class="n">loadTexture</span><span class="p">(</span><span class="s2">&quot;naves.png&quot;</span><span class="p">);</span>
+        <span class="n">navesTextureRegion</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TextureRegion</span><span class="p">(</span><span class="n">nave</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">playSound</span><span class="p">(</span><span class="n">Sound</span> <span class="n">sound</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sound</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Next, change the <cite>MissileCommand</cite> class. Write the following code in our <cite>MissileCommand.java</cite> file. Use the comments in this code to help understand it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Game</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Gdx</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.SpriteBatch</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.screens.MainMenuScreen</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">Main</span> <span class="n">game</span> <span class="k">class</span>
+<span class="nc">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">MissileCommand</span> <span class="n">extends</span> <span class="n">Game</span> <span class="p">{</span>
+<span class="o">//</span> <span class="n">used</span> <span class="n">by</span> <span class="nb">all</span> <span class="n">screens</span>
+<span class="n">public</span> <span class="n">SpriteBatch</span> <span class="n">batcher</span><span class="p">;</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">create</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">setCatchBackKey</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+        <span class="n">batcher</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SpriteBatch</span><span class="p">();</span>
+        <span class="o">//</span> <span class="n">Load</span> <span class="n">resources</span>
+        <span class="n">Assets</span><span class="o">.</span><span class="n">load</span><span class="p">();</span>
+        <span class="o">//</span> <span class="n">Draw</span> <span class="n">main</span> <span class="n">menu</span>
+        <span class="n">setScreen</span><span class="p">(</span><span class="n">new</span> <span class="n">MainMenuScreen</span><span class="p">(</span><span class="n">this</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">render</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Next create package “screens” for all game screens and create class <cite>MainMenuScreen</cite> for the main menu.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="o">.</span><span class="n">screens</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Gdx</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Input</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.ScreenAdapter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.GL20</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.OrthographicCamera</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Sprite</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.math.Vector3</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.MissileCommand</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.Assets</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">MainMenuScreen</span> <span class="n">extends</span> <span class="n">ScreenAdapter</span> <span class="p">{</span>
+<span class="n">MissileCommand</span> <span class="n">game</span><span class="p">;</span>
+<span class="n">OrthographicCamera</span> <span class="n">guiCam</span><span class="p">;</span>
+<span class="n">Sprite</span> <span class="n">startButton</span><span class="p">;</span>
+<span class="n">Sprite</span> <span class="n">creditsButton</span><span class="p">;</span>
+<span class="n">Vector3</span> <span class="n">touchPoint</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">MainMenuScreen</span> <span class="p">(</span><span class="n">MissileCommand</span> <span class="n">game</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">game</span><span class="p">;</span>
+        <span class="o">//</span> <span class="n">initialize</span> <span class="n">camera</span>
+        <span class="n">guiCam</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OrthographicCamera</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span><span class="p">);</span>
+        <span class="n">guiCam</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="o">//</span> <span class="n">Create</span> <span class="n">buttons</span>
+        <span class="n">startButton</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">startButtonTextureRegion</span><span class="p">);</span>
+        <span class="n">startButton</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">startButton</span><span class="o">.</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">startButton</span><span class="o">.</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">*</span> <span class="mf">2.5</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">creditsButton</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">creditsButtonTextureRegion</span><span class="p">);</span>
+        <span class="n">creditsButton</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">creditsButton</span><span class="o">.</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">creditsButton</span><span class="o">.</span><span class="n">getHeight</span><span class="p">());</span>
+        <span class="n">touchPoint</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vector3</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Find</span> <span class="n">events</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">update</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">isKeyPressed</span><span class="p">(</span><span class="n">Input</span><span class="o">.</span><span class="n">Keys</span><span class="o">.</span><span class="n">BACK</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">Gdx</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">exit</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">justTouched</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">guiCam</span><span class="o">.</span><span class="n">unproject</span><span class="p">(</span><span class="n">touchPoint</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">getX</span><span class="p">(),</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">getY</span><span class="p">(),</span> <span class="mi">0</span><span class="p">));</span>
+        <span class="o">//</span> <span class="n">Update</span> <span class="n">screen</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">startButton</span><span class="o">.</span><span class="n">getBoundingRectangle</span><span class="p">()</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">touchPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">touchPoint</span><span class="o">.</span><span class="n">y</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">game</span><span class="o">.</span><span class="n">setScreen</span><span class="p">(</span><span class="n">new</span> <span class="n">MissleCommandGameScreen</span><span class="p">(</span><span class="n">game</span><span class="p">));</span>
+                <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">creditsButton</span><span class="o">.</span><span class="n">getBoundingRectangle</span><span class="p">()</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">touchPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">touchPoint</span><span class="o">.</span><span class="n">y</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">game</span><span class="o">.</span><span class="n">setScreen</span><span class="p">(</span><span class="n">new</span> <span class="n">CreditsScreen</span><span class="p">(</span><span class="n">game</span><span class="p">));</span>
+                <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">//</span> <span class="n">Draw</span> <span class="n">elements</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">draw</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">GL20</span> <span class="n">gl</span> <span class="o">=</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">gl</span><span class="p">;</span>
+        <span class="n">gl</span><span class="o">.</span><span class="n">glClearColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">gl</span><span class="o">.</span><span class="n">glClear</span><span class="p">(</span><span class="n">GL20</span><span class="o">.</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span>
+        <span class="n">guiCam</span><span class="o">.</span><span class="n">update</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">setProjectionMatrix</span><span class="p">(</span><span class="n">guiCam</span><span class="o">.</span><span class="n">combined</span><span class="p">);</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">disableBlending</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">backgroundRegionMenu</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span><span class="p">);</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">end</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">enableBlending</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+        <span class="n">startButton</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="p">);</span>
+        <span class="n">creditsButton</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="p">);</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">end</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">render</span> <span class="p">(</span><span class="nb">float</span> <span class="n">delta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">update</span><span class="p">();</span>
+        <span class="n">draw</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create the class <cite>CreditsScreen</cite> with some information about our game.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="o">.</span><span class="n">screens</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Gdx</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.Input</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.ScreenAdapter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.GL20</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.OrthographicCamera</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.BitmapFont</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Sprite</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.math.Vector3</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.MissileCommand</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.Assets</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">CreditsScreen</span> <span class="n">extends</span> <span class="n">ScreenAdapter</span> <span class="p">{</span>
+<span class="n">MissileCommand</span> <span class="n">game</span><span class="p">;</span>
+<span class="n">OrthographicCamera</span> <span class="n">guiCam</span><span class="p">;</span>
+<span class="n">Sprite</span> <span class="n">backButton</span><span class="p">;</span>
+<span class="n">Vector3</span> <span class="n">touchPoint</span><span class="p">;</span>
+<span class="n">BitmapFont</span> <span class="n">font</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">CreditsScreen</span><span class="p">(</span><span class="n">MissileCommand</span> <span class="n">game</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">this</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">game</span><span class="p">;</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">new</span> <span class="n">BitmapFont</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">fontFile</span><span class="p">);</span>
+        <span class="n">font</span><span class="o">.</span><span class="n">getData</span><span class="p">()</span><span class="o">.</span><span class="n">setScale</span><span class="p">(</span><span class="mf">0.7</span><span class="n">f</span><span class="p">);</span>
+        <span class="n">guiCam</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OrthographicCamera</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span><span class="p">);</span>
+        <span class="n">guiCam</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">backButton</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">backButtonTextureRegion</span><span class="p">);</span>
+        <span class="n">backButton</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">backButton</span><span class="o">.</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">backButton</span><span class="o">.</span><span class="n">getHeight</span><span class="p">());</span>
+        <span class="n">touchPoint</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vector3</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">update</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">justTouched</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">guiCam</span><span class="o">.</span><span class="n">unproject</span><span class="p">(</span><span class="n">touchPoint</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">getX</span><span class="p">(),</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">getY</span><span class="p">(),</span> <span class="mi">0</span><span class="p">));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">backButton</span><span class="o">.</span><span class="n">getBoundingRectangle</span><span class="p">()</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">touchPoint</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">touchPoint</span><span class="o">.</span><span class="n">y</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">game</span><span class="o">.</span><span class="n">setScreen</span><span class="p">(</span><span class="n">new</span> <span class="n">MainMenuScreen</span><span class="p">(</span><span class="n">game</span><span class="p">));</span>
+                <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Gdx</span><span class="o">.</span><span class="n">input</span><span class="o">.</span><span class="n">isKeyPressed</span><span class="p">(</span><span class="n">Input</span><span class="o">.</span><span class="n">Keys</span><span class="o">.</span><span class="n">BACK</span><span class="p">)){</span>
+        <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">draw</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">GL20</span> <span class="n">gl</span> <span class="o">=</span> <span class="n">Gdx</span><span class="o">.</span><span class="n">gl</span><span class="p">;</span>
+        <span class="n">gl</span><span class="o">.</span><span class="n">glClearColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">gl</span><span class="o">.</span><span class="n">glClear</span><span class="p">(</span><span class="n">GL20</span><span class="o">.</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="p">);</span>
+        <span class="n">guiCam</span><span class="o">.</span><span class="n">update</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">setProjectionMatrix</span><span class="p">(</span><span class="n">guiCam</span><span class="o">.</span><span class="n">combined</span><span class="p">);</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">disableBlending</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">backgroundRegionMenu</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span><span class="p">);</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">end</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">enableBlending</span><span class="p">();</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+        <span class="n">backButton</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="p">);</span>
+        <span class="n">font</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="p">,</span> <span class="s2">&quot;Programmer: Matheus Palheta</span><span class="se">\n\n</span><span class="s2">Game Design: Jucimar Jr&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">320</span><span class="p">);</span>
+        <span class="n">game</span><span class="o">.</span><span class="n">batcher</span><span class="o">.</span><span class="n">end</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">render</span> <span class="p">(</span><span class="nb">float</span> <span class="n">delta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">update</span><span class="p">();</span>
+        <span class="n">draw</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">pause</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="o">//</span><span class="n">Settings</span><span class="o">.</span><span class="n">save</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create the main game screen class <cite>MissleCommandGameScreen</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.screens;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
+import org.moe.libgdxmissilecommand.Assets;
+import org.moe.libgdxmissilecommand.MissileCommand;
+import org.moe.libgdxmissilecommand.models.City;
+import org.moe.libgdxmissilecommand.models.GameObject;
+import org.moe.libgdxmissilecommand.models.Nave;
+import java.util.ArrayList;
+public class MissleCommandGameScreen extends ScreenAdapter {
+private MissileCommand game;
+private OrthographicCamera guiCam;
+private BitmapFont fontTime;
+private BitmapFont fontTitle;
+private int levelBackgroung = 0;
+private long lastAttackTime = 0;
+private float time = 0;
+private boolean playing = true;
+private Sprite pauseButton;
+private Sprite backButton;
+private Vector3 touchPoint;
+private int wave = 1;
+private long verNaves = 0;
+private long score = 0;
+private ArrayList&lt;org.moe.libgdxmissilecommand.models.Missile&gt; missiles = new ArrayList&lt;&gt;();
+private ArrayList&lt;Nave&gt; naves = new ArrayList&lt;&gt;();
+City[] cities = new City[6];
+org.moe.libgdxmissilecommand.models.Player player;
+public MissleCommandGameScreen(MissileCommand game) {
+        this.game = game;
+        fontTime = new BitmapFont(Assets.fontFile);
+        fontTime.getData().setScale(0.5f);
+        fontTitle = new BitmapFont(Assets.fontFile);
+        fontTitle.getData().setScale(0.7f);
+
+        // Initialize camera
+        guiCam = new OrthographicCamera(Assets.screenWidth, Assets.screenHeight);
+        guiCam.position.set(Assets.screenWidth / 2, Assets.screenHeight / 2, 0);
+
+        // Create buttons
+        pauseButton = new Sprite(Assets.pauseButtonTextureRegion);
+        pauseButton.setPosition(Assets.screenWidth - (pauseButton.getWidth() + 2), 5);
+        backButton = new Sprite(Assets.backButtonTextureRegion);
+        backButton.setPosition(Assets.screenWidth - (backButton.getWidth() + 2), 2);
+        touchPoint = new Vector3();
+        // Create player
+        player = new org.moe.libgdxmissilecommand.models.Player();
+        player.setPosition(Assets.screenWidth / 2, Assets.screenHeight / 24);
+
+        // Create cities
+        City.resetCounter();
+        for (int i = 0; i &lt; cities.length; i++) {
+        cities[i] = new City();
+        }
+}
+
+// Draw elements
+private void draw() {
+        GL20 gl = Gdx.gl;
+        gl.glClearColor(1, 0, 0, 1);
+        gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        guiCam.update();
+        game.batcher.setProjectionMatrix(guiCam.combined);
+        game.batcher.begin();
+        game.batcher.draw(Assets.levelsBackgroundsTextureRegions[levelBackgroung], 0, 0, Assets.screenWidth, Assets.screenHeight);
+        game.batcher.end();
+        game.batcher.enableBlending();
+        if (playing)
+        checkCollisions();
+        game.batcher.begin();
+        float dt = Gdx.graphics.getDeltaTime();
+        for (City city : cities) {
+        if (playing)
+                city.update(dt);
+        city.draw(game.batcher);
+        }
+        if (playing) {
+        time -= dt;
+        if (time &gt; 20 / wave &amp;&amp; (System.currentTimeMillis() - verNaves &gt; 5000) &amp;&amp; City.getCityCounter() &gt; 0) {
+                addNaves();
+        }
+        }
+        int printTime = (int) time;
+        if (printTime &lt; 0)
+        printTime = 0;
+        fontTime.draw(game.batcher, &quot;Time: &quot; + String.valueOf(printTime) + &quot;s&quot;,
+                Assets.screenWidth - 150, Assets.screenHeight - 25);
+        fontTime.draw(game.batcher, &quot;Score: &quot; + String.valueOf(score),
+                2, Assets.screenHeight - 25);
+        for(int i = 0; i &lt; missiles.size(); i++) {
+        org.moe.libgdxmissilecommand.models.Missile missile = missiles.get(i);
+        if (missile.isAlive()) {
+                if (playing)
+                missile.update(dt);
+                missile.draw(game.batcher);
+        } else {
+                missiles.remove(i);
+                i--;
+        }
+        }
+        player.draw(game.batcher);
+        for(int i = 0; i &lt; naves.size(); i++) {
+        Nave nave = naves.get(i);
+        if (nave.isAlive()) {
+                if (playing)
+                nave.update(dt);
+                nave.draw(game.batcher);
+        } else {
+                naves.remove(i);
+                i--;
+        }
+        }
+        if (playing) {
+        if (time &lt;= 0) {
+                fontTitle.draw(game.batcher, &quot;Wave &quot; + String.valueOf(wave) +
+                        &quot; Starts in &quot; + String.valueOf((int)(3 + time)) + &quot;s&quot;,
+                        230, 240);
+                if (time &lt; -3) {
+                time = 60;
+                wave++;
+                levelBackgroung = (wave - 2) % 4;
+                }
+        }
+        pauseButton.draw(game.batcher);
+        } else {
+        if (City.getCityCounter() &gt; 0) {
+                fontTitle.draw(game.batcher, &quot;Touch the screen to resuming the game&quot;,
+                        100, 320 + fontTitle.getLineHeight());
+                fontTitle.draw(game.batcher, &quot;Or press back button to exit in the main menu&quot;,
+                        70, 320 - fontTitle.getLineHeight());
+        } else {
+                fontTitle.draw(game.batcher, &quot;You Lose!&quot;,
+                        320, 320 + fontTitle.getLineHeight());
+                fontTitle.draw(game.batcher, &quot;Score: &quot; + String.valueOf(score),
+                        320, 320 - fontTitle.getLineHeight());
+        }
+        backButton.draw(game.batcher);
+        }
+        fontTime.draw(game.batcher, &quot;fps: &quot; + Gdx.graphics.getFramesPerSecond(), 0, 0);
+        game.batcher.end();
+}
+
+// Check events
+private void update() {
+        if (City.getCityCounter() &lt;= 0) {
+        playing = false;
+        }
+        if (Gdx.input.justTouched()) {
+        guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
+        if (pauseButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y) &amp;&amp; playing) {
+                playing = false;
+                return;
+        }
+        if (backButton.getBoundingRectangle().contains(touchPoint.x, touchPoint.y)) {
+                game.setScreen(new MainMenuScreen(game));
+                return;
+        }
+        if (!playing) {
+                if (City.getCityCounter() &gt; 0)
+                playing = true;
+                return;
+        }
+        if (System.currentTimeMillis() - lastAttackTime &gt; 450 &amp;&amp; touchPoint.y &gt;= player.getY()) {
+                lastAttackTime = System.currentTimeMillis();
+                missiles.add(new org.moe.libgdxmissilecommand.models.Missile());
+                missiles.get(missiles.size() - 1).detectTarget(touchPoint.x, touchPoint.y);
+                player.setRotation(missiles.get(missiles.size() - 1).getRotation());
+        }
+        }
+}
+
+// Add new naves
+private void addNaves() {
+        naves.add(new Nave(wave));
+        naves.add(new Nave(wave));
+        naves.add(new Nave(wave));
+        verNaves = System.currentTimeMillis();
+}
+@Override
+public void render (float delta) {
+        update();
+        draw();
+}
+// Check all collisions in the game
+private void checkCollisions() {
+        for(int i = 0; i &lt; naves.size(); i++) {
+        for (City city : cities) {
+                if (isCollision(naves.get(i), city)) {
+                naves.get(i).kill();
+                city.kill();
+                }
+        }
+        for(int j = 0; j &lt; missiles.size(); j++) {
+                if (isCollision(naves.get(i), missiles.get(j)) &amp;&amp; naves.get(i).kill()) {
+                score++;
+                missiles.get(j).kill();
+                }
+        }
+        }
+}
+
+// Check collision
+private &lt;T extends GameObject&gt; boolean isCollision(T obj1, T obj2) {
+        Rectangle r1 = obj1.collisionRectangle();
+        Rectangle r2 = obj2.collisionRectangle();
+        return !(r1 == null || r2 == null) &amp;&amp; r2.overlaps(r1);
+}
+}
+</pre></div>
+</div>
+<p>We created all the screens for our game. So now we should create some models such as Player, Naves and others for our game. Create a new package <cite>models</cite> and create the base class <cite>GameObject</cite> for all objects in our game.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>package org.moe.libgdxmissilecommand.models;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+public class GameObject extends Sprite {
+protected boolean alive = true;
+protected float explosionTime;
+GameObject(TextureRegion region) {
+        super(region);
+        explosionTime = -1;
+}
+
+// Check object
+public boolean isAlive() {
+        return alive;
+}
+
+// update object
+public void update(float deltaTime) {}
+
+// kill object
+public boolean kill() {
+        if (Float.compare(explosionTime, -1) == 0) {
+        explosionTime = -100;
+        return true;
+        }
+        return false;
+}
+
+// get collision rectangle for object
+public Rectangle collisionRectangle() {
+        if (!alive) {
+        return null;
+        }
+        return getBoundingRectangle();
+}
+}
+</pre></div>
+</div>
+<p>Create the <cite>Player</cite> class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="o">.</span><span class="n">models</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Batch</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Sprite</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.Assets</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Player</span> <span class="n">extends</span> <span class="n">GameObject</span> <span class="p">{</span>
+<span class="n">private</span> <span class="n">Sprite</span> <span class="n">playerBase</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">Player</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">playerGunTextureRegion</span><span class="p">);</span>
+        <span class="n">playerBase</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Sprite</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">playerBaseTextureRegion</span><span class="p">);</span>
+        <span class="n">setOrigin</span><span class="p">(</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">setPosition</span><span class="p">(</span><span class="nb">float</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Need</span> <span class="n">override</span> <span class="n">only</span> <span class="k">for</span> <span class="n">playerBase</span> <span class="n">sprite</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+        <span class="n">playerBase</span><span class="o">.</span><span class="n">setPosition</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">playerBase</span><span class="o">.</span><span class="n">getWidth</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">draw</span><span class="p">(</span><span class="n">Batch</span> <span class="n">batch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Need</span> <span class="n">override</span> <span class="n">only</span> <span class="k">for</span> <span class="n">playerBase</span> <span class="n">sprite</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span>
+        <span class="n">playerBase</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create the <cite>Missile</cite> class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="o">.</span><span class="n">models</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Batch</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.TextureRegion</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.math.Vector2</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.Assets</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Missile</span> <span class="n">extends</span> <span class="n">GameObject</span> <span class="p">{</span>
+<span class="o">//</span> <span class="n">Speed</span> <span class="n">of</span> <span class="n">missile</span>
+<span class="n">private</span> <span class="n">final</span> <span class="nb">float</span> <span class="n">speed</span> <span class="o">=</span> <span class="mf">600.0</span><span class="n">f</span><span class="p">;</span>
+<span class="n">private</span> <span class="nb">float</span> <span class="n">targetY</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">Missile</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">missileTextureRegion</span><span class="p">);</span>
+        <span class="n">setPosition</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span> <span class="o">/</span> <span class="mi">24</span> <span class="o">+</span> <span class="mi">10</span><span class="p">);</span>
+
+        <span class="o">//</span> <span class="n">Start</span> <span class="n">sound</span>
+        <span class="n">Assets</span><span class="o">.</span><span class="n">playSound</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">missileSound</span><span class="p">);</span>
+        <span class="n">targetY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Detect</span> <span class="n">missile</span> <span class="n">target</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">detectTarget</span><span class="p">(</span><span class="nb">float</span> <span class="n">x</span><span class="p">,</span> <span class="nb">float</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">targetY</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+        <span class="n">Vector2</span> <span class="n">tempVector</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Vector2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+        <span class="n">setRotation</span><span class="p">(</span><span class="n">tempVector</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">getX</span><span class="p">(),</span> <span class="n">this</span><span class="o">.</span><span class="n">getY</span><span class="p">())</span><span class="o">.</span><span class="n">angle</span><span class="p">()</span> <span class="o">-</span> <span class="mi">90</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">update</span><span class="p">(</span><span class="nb">float</span> <span class="n">deltaTime</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Move</span> <span class="n">missile</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getY</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">targetY</span> <span class="o">||</span> <span class="n">getX</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">getX</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">||</span> <span class="n">explosionTime</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">explosionTime</span> <span class="o">+=</span> <span class="n">deltaTime</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nb">float</span> <span class="n">hypotenuse</span> <span class="o">=</span> <span class="n">speed</span><span class="o">*</span><span class="n">deltaTime</span><span class="p">;</span>
+        <span class="nb">float</span> <span class="n">shiftY</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="n">Math</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">hypotenuse</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">getRotation</span><span class="p">()</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)));</span>
+        <span class="nb">float</span> <span class="n">shiftX</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="n">Math</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">hypotenuse</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">getRotation</span><span class="p">()</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)));</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">getRotation</span><span class="p">()</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">shiftX</span> <span class="o">=</span> <span class="o">-</span><span class="n">shiftX</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">setPosition</span><span class="p">(</span><span class="n">getX</span><span class="p">()</span> <span class="o">+</span> <span class="n">shiftX</span><span class="p">,</span> <span class="n">getY</span><span class="p">()</span> <span class="o">+</span> <span class="n">shiftY</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">draw</span><span class="p">(</span><span class="n">Batch</span> <span class="n">batch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getY</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">targetY</span> <span class="o">||</span> <span class="n">getX</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">getX</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">||</span> <span class="n">Float</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Draw</span> <span class="n">explosion</span> <span class="n">animation</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">explosionTime</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">explosionTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">Assets</span><span class="o">.</span><span class="n">playSound</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">explosionSound</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">TextureRegion</span> <span class="n">keyFrame</span> <span class="o">=</span> <span class="n">Assets</span><span class="o">.</span><span class="n">explosionAnimation</span><span class="o">.</span><span class="n">getKeyFrame</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+        <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">keyFrame</span><span class="p">,</span> <span class="n">getX</span><span class="p">()</span> <span class="o">-</span> <span class="mi">74</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">getY</span><span class="p">()</span> <span class="o">-</span> <span class="mi">76</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">explosionAnimation</span><span class="o">.</span><span class="n">isAnimationFinished</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">))</span>
+                <span class="n">alive</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Draw</span> <span class="n">missile</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now create the class <cite>Nave</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="o">.</span><span class="n">models</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Batch</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.TextureRegion</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.Assets</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.SecureRandom</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">Nave</span> <span class="n">extends</span> <span class="n">GameObject</span> <span class="p">{</span>
+<span class="n">private</span> <span class="nb">float</span> <span class="n">velX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">velY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">Nave</span><span class="p">(</span><span class="nb">int</span> <span class="n">wave</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">navesTextureRegion</span><span class="p">);</span>
+        <span class="n">SecureRandom</span> <span class="n">random</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SecureRandom</span><span class="p">();</span>
+        <span class="o">//</span> <span class="n">Init</span> <span class="n">position</span>
+        <span class="nb">int</span> <span class="n">posX</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">nextInt</span><span class="p">((</span><span class="nb">int</span><span class="p">)</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span><span class="p">);</span>
+        <span class="n">setPosition</span><span class="p">(</span><span class="n">posX</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span><span class="p">);</span>
+        <span class="o">//</span> <span class="n">Calculate</span> <span class="n">init</span> <span class="n">rotation</span>
+                <span class="nb">float</span> <span class="n">angle</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">posX</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="o">-</span><span class="n">random</span><span class="o">.</span><span class="n">nextFloat</span><span class="p">()</span> <span class="o">*</span> <span class="mi">45</span><span class="p">;</span>
+        <span class="n">velX</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">wave</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
+        <span class="n">velY</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">wave</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">nextFloat</span><span class="p">()</span> <span class="o">*</span> <span class="mi">45</span><span class="p">;</span>
+        <span class="n">velX</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">wave</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
+        <span class="n">velY</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="n">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">wave</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="n">setRotation</span><span class="p">(</span><span class="o">-</span><span class="n">angle</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">update</span><span class="p">(</span><span class="nb">float</span> <span class="n">deltaTime</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Move</span> <span class="n">nave</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getY</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">30</span> <span class="o">||</span> <span class="n">explosionTime</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">explosionTime</span> <span class="o">+=</span> <span class="n">deltaTime</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">setPosition</span><span class="p">(</span><span class="n">getX</span><span class="p">()</span> <span class="o">-</span> <span class="n">velX</span><span class="p">,</span> <span class="n">getY</span><span class="p">()</span> <span class="o">-</span> <span class="n">velY</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">draw</span><span class="p">(</span><span class="n">Batch</span> <span class="n">batch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getY</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">30</span> <span class="o">||</span> <span class="n">Float</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Draw</span> <span class="n">explosion</span> <span class="n">animation</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">explosionTime</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">explosionTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">Assets</span><span class="o">.</span><span class="n">playSound</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">explosionSound</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">TextureRegion</span> <span class="n">keyFrame</span> <span class="o">=</span> <span class="n">Assets</span><span class="o">.</span><span class="n">explosionAnimation</span><span class="o">.</span><span class="n">getKeyFrame</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+        <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">keyFrame</span><span class="p">,</span> <span class="n">getX</span><span class="p">()</span> <span class="o">-</span> <span class="mi">74</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">getY</span><span class="p">()</span> <span class="o">-</span> <span class="mi">76</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">76</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">explosionAnimation</span><span class="o">.</span><span class="n">isAnimationFinished</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">))</span>
+                <span class="n">alive</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Draw</span> <span class="n">nave</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And also create class <cite>City</cite> for cities.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">moe</span><span class="o">.</span><span class="n">libgdxmissilecommand</span><span class="o">.</span><span class="n">models</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.Batch</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.badlogic.gdx.graphics.g2d.TextureRegion</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">org.moe.libgdxmissilecommand.Assets</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.security.SecureRandom</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">City</span> <span class="n">extends</span> <span class="n">GameObject</span> <span class="p">{</span>
+<span class="o">//</span> <span class="n">Cities</span> <span class="n">counter</span>
+<span class="n">static</span> <span class="n">long</span> <span class="n">cityCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">public</span> <span class="n">City</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Take</span> <span class="n">random</span> <span class="n">texture</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">citiesTextureRegions</span><span class="p">[</span><span class="n">new</span> <span class="n">SecureRandom</span><span class="p">()</span><span class="o">.</span><span class="n">nextInt</span><span class="p">(</span><span class="mi">6</span><span class="p">)]);</span>
+        <span class="o">//</span> <span class="n">Init</span> <span class="n">position</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cityCounter</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">setPosition</span><span class="p">(</span><span class="mi">50</span>  <span class="o">+</span> <span class="p">((</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">200</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">cityCounter</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span> <span class="o">/</span> <span class="mi">24</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">setPosition</span><span class="p">(</span><span class="mi">50</span>  <span class="o">+</span> <span class="p">((</span><span class="n">Assets</span><span class="o">.</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">200</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">cityCounter</span> <span class="o">+</span> <span class="mi">120</span><span class="p">,</span> <span class="n">Assets</span><span class="o">.</span><span class="n">screenHeight</span> <span class="o">/</span> <span class="mi">24</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">cityCounter</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Reset</span> <span class="n">counter</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">resetCounter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">cityCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">Get</span> <span class="n">counter</span>
+<span class="n">public</span> <span class="n">static</span> <span class="n">long</span> <span class="n">getCityCounter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">cityCounter</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">update</span><span class="p">(</span><span class="nb">float</span> <span class="n">deltaTime</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Update</span> <span class="n">explosion</span> <span class="n">animation</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">explosionTime</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">explosionTime</span> <span class="o">+=</span> <span class="n">deltaTime</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nd">@Override</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">draw</span><span class="p">(</span><span class="n">Batch</span> <span class="n">batch</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Float</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Draw</span> <span class="n">animation</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">explosionTime</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">explosionTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">Assets</span><span class="o">.</span><span class="n">playSound</span><span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">explosionSound</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">TextureRegion</span> <span class="n">keyFrame</span> <span class="o">=</span> <span class="n">Assets</span><span class="o">.</span><span class="n">citiesDestroyAnimation</span><span class="o">.</span><span class="n">getKeyFrame</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Assets</span><span class="o">.</span><span class="n">citiesDestroyAnimation</span><span class="o">.</span><span class="n">getKeyFrameIndex</span><span class="p">(</span><span class="n">explosionTime</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">keyFrame</span><span class="p">,</span> <span class="n">getX</span><span class="p">(),</span> <span class="n">getY</span><span class="p">(),</span> <span class="n">getWidth</span><span class="p">(),</span> <span class="mi">15</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">isAlive</span><span class="p">())</span>
+                <span class="n">cityCounter</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">alive</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">batch</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">keyFrame</span><span class="p">,</span> <span class="n">getX</span><span class="p">(),</span> <span class="n">getY</span><span class="p">(),</span> <span class="n">getWidth</span><span class="p">(),</span> <span class="n">getHeight</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Draw</span> <span class="n">city</span>
+        <span class="nb">super</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">batch</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>That completes the common part of our application! Now we can start to develop the Android and/or iOS parts of our game.</p>
+</section>
+<section id="android-code-part">
+<h2>Android Code Part<a class="headerlink" href="#android-code-part" title="Link to this heading">¶</a></h2>
+<p>All configuartion is already done by the generator.</p>
+</section>
+<section id="asset-part">
+<h2>Asset Part<a class="headerlink" href="#asset-part" title="Link to this heading">¶</a></h2>
+<p>Finally, add images, sounds and others asset files for our game. You can download these files from <a href="#id1"><span class="problematic" id="id2">`here https://github.com/jucimarjr/html5games/tree/master/cocos2d/MissileCommand/assets`_</span></a> (All resources are distributed under MIT license). After you download these files, copy them to the “assets” directory. Rename the files a.png-g.png to city[1…6].png.</p>
+<img alt="../../../../_images/libgdx5.png" src="../../../../_images/libgdx5.png" />
+<p>Congratulations! We completed our Android game. Now we can build and run the game! You can see the running app in the screen shot below.</p>
+<img alt="../../../../_images/libgdx6.png" src="../../../../_images/libgdx6.png" />
+</section>
+<section id="ios-code-part">
+<h2>iOS Code Part<a class="headerlink" href="#ios-code-part" title="Link to this heading">¶</a></h2>
+<p>The code is already fully functional generated.</p>
+<p>Now we will modify the Xcode project. Right-click its name and select Multi-OS Engine &gt; Open Project in Xcode.</p>
+<img alt="../../../../_images/libgdx7.png" src="../../../../_images/libgdx7.png" />
+<p>The Xcode project will be opened and we should see the next screen:</p>
+<img alt="../../../../_images/libgdx8.png" src="../../../../_images/libgdx8.png" />
+<p>Than, add the necessary frameworks to our application.</p>
+<img alt="../../../../_images/libgdx9.png" src="../../../../_images/libgdx9.png" />
+<img alt="../../../../_images/libgdx10.png" src="../../../../_images/libgdx10.png" />
+<img alt="../../../../_images/libgdx11.png" src="../../../../_images/libgdx11.png" />
+<img alt="../../../../_images/libgdx12.png" src="../../../../_images/libgdx12.png" />
+<p>Add all xcframeworks available.</p>
+<p>Congratulations! We completed our iOS game and our application. You can see iOS game screenshot below.</p>
+<img alt="../../../../_images/libgdx14.png" src="../../../../_images/libgdx14.png" />
+</section>
+<section id="debug-your-app">
+<h2>Debug Your App<a class="headerlink" href="#debug-your-app" title="Link to this heading">¶</a></h2>
+<p>We can now explore how you can debug your libGDX application. The libGDX debug process is not specific, so we can debug our libGDX game as usual Multi-OS Engine app. To begin, set some breakpoints.</p>
+<p>For example, set two breakpoints in our common code part. First, set a breakpoint at the start of game creating function (<cite>create()</cite>) at line 15 (<cite>MissleCommand.java:MissleCommand.create():15</cite>).</p>
+<img alt="../../../../_images/libgdx20.png" src="../../../../_images/libgdx20.png" />
+<p>Set the second breakpoint in file <cite>MainMenuScreen.java</cite>  line 55 (start of draw function). (<cite>MainMenuScreen. MainMenuScreen.draw():55</cite>).</p>
+<img alt="../../../../_images/libgdx21.png" src="../../../../_images/libgdx21.png" />
+<p>Now we can run our application with debugging. While debugging, use all opportunities to debug your code such as Step Over, Step Into, Resume program. Also you can use stack trace to help debug your application.</p>
+<img alt="../../../../_images/libgdx22.png" src="../../../../_images/libgdx22.png" />
+<p>Use a stack trace to see values of variables on a previous step. You can see it below.</p>
+<img alt="../../../../_images/libgdx23.png" src="../../../../_images/libgdx23.png" />
+<p>You can download all Multi-OS Engine samples <a class="reference external" href="https://github.com/multi-os-engine/moe-samples-java">here (Java)</a> and <a class="reference external" href="https://github.com/multi-os-engine/moe-samples-kotlin">here (Kotlin)</a>.</p>
+</section>
+<section id="summary-and-resources">
+<h2>Summary and Resources<a class="headerlink" href="#summary-and-resources" title="Link to this heading">¶</a></h2>
+<p>LibGDX development with the Multi-OS Engine has many advantages, including:</p>
+<ul class="simple">
+<li><p>The biggest part of application is the common part.</p></li>
+<li><p>The common part uses familiar Java syntax.</p></li>
+<li><p>You can debug two targets side-by-side using the powerful iOS simulator and Android emulator.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../game/" class="btn btn-neutral float-left" title="Creating a Game App" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../2_opengl/opengl/" class="btn btn-neutral float-right" title="Building your OpenGL App with Multi-OS Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logging Options for the Intel’s Multi-OS Engine &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" />
+    <link rel="next" title="Troubleshooting tips" href="../../../13_Troubleshooting/troubleshooting/" />
+    <link rel="prev" title="Advanced Topics" href="../../advanced/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3_getting_started/Getting_Started/">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../4_create_ui/create_ui/">Creating Your App’s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../5_using_thirdparty/using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../6_natj/NatJ/">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../7_creating_db_app/creating_db_app/">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../9_game/game/">Creating a Game App</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../advanced/">Advanced Topics</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Logging Options for the Intel’s Multi-OS Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-android-logging-api">Use the Android Logging API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-slf4j-library">Use the slf4j Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-log4j-api-with-slf4j">Using the log4j API with slf4j</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../advanced/">Advanced Topics</a></li>
+      <li class="breadcrumb-item active">Logging Options for the Intel’s Multi-OS Engine</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/multi-os-engine/12_advanced/1_loging/loging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="logging-options-for-the-intel-s-multi-os-engine">
+<h1>Logging Options for the Intel’s Multi-OS Engine<a class="headerlink" href="#logging-options-for-the-intel-s-multi-os-engine" title="Link to this heading">¶</a></h1>
+<p>Logging is an important part of any application. In this page we look at a few alternatives to do logging with the Intel® Multi-OS Engine:</p>
+<ul class="simple">
+<li><p>The Android* logging API</p></li>
+<li><p>slf4j with either the simple logger or the Android logger implementation</p></li>
+<li><p>The log4j API with slf4j</p></li>
+</ul>
+<p>Read on for more details. The sample code is available <a class="reference download internal" download="" href="../../../../_downloads/04544c4902172c69e433f89a73236723/logging-samples.zip"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+<section id="use-the-android-logging-api">
+<h2>Use the Android Logging API<a class="headerlink" href="#use-the-android-logging-api" title="Link to this heading">¶</a></h2>
+<p>If you are porting an Android app to Apple iOS with the Multi-OS Engine, or you are already familiar with the Android logging API, use it with the Multi-OS Engine.</p>
+<ol class="arabic simple">
+<li><p>First, we need to add the moe-android-lib.jar file to the lib folder in our Multi-OS Engine project or module. This small library implements the Android logging API for iOS. The library is included in the sample code (attached above).</p></li>
+<li><p>Right-click the jar file and choose Add as Library… from the context menu.</p></li>
+</ol>
+<p>Now we can use the familiar <a class="reference external" href="http://developer.android.com/reference/android/util/Log.html">android.util.Log</a> class on iOS as well.</p>
+<p>The default log level is set to DEBUG, similar to Android. To change it, just call the <cite>android.util.Log.setLogLevel</cite> static method in our app’s <cite>main()</cite>
+method :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">setLogLevel</span><span class="p">(</span><span class="n">Log</span><span class="o">.</span><span class="n">ERROR</span><span class="p">);</span>
+    <span class="n">UIKit</span><span class="o">.</span><span class="n">UIApplicationMain</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">null</span><span class="p">,</span> <span class="n">null</span><span class="p">,</span> <span class="n">Main</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">getName</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="use-the-slf4j-library">
+<h2>Use the slf4j Library<a class="headerlink" href="#use-the-slf4j-library" title="Link to this heading">¶</a></h2>
+<p>The slf4j library (<a class="reference external" href="http://slf4j.org">http://slf4j.org</a>) is a modern, type-safe logging library for Java apps. It is separated into an API jar file and multiple backend jar files. To use slf4j, you select a specific backend. For the Multi-OS Engine, we may use the following backends:</p>
+<ul class="simple">
+<li><p>slf4j-simple, which simply logs to the standard error device.</p></li>
+<li><p>slf4j-android, which uses the Android logger implementation.</p></li>
+</ul>
+<p>To use slf4j, we need to add the correct dependencies to the <cite>build.gradle</cite> file of our project. To do this, add the following lines to the dependencies block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">compile</span> <span class="s1">&#39;org.slf4j:slf4j-api:1.7.12&#39;</span>
+<span class="nb">compile</span> <span class="s1">&#39;org.slf4j:slf4j-simple:1.7.12&#39;</span> <span class="o">//</span> <span class="ow">or</span> <span class="nb">compile</span> <span class="s1">&#39;org.slf4j:slf4j-android:1.7.12&#39;</span>
+</pre></div>
+</div>
+<p>When using the simple backend, then you can add a <cite>simplelogger.properties</cite> to the <cite>src/main/resources</cite> directory in your project. You can use it to configure the format and loglevel of the backend. Here is a short example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># SLF4J&#39;s SimpleLogger configuration file</span>
+<span class="c1"># Simple implementation of Logger that sends all enabled log messages, for all defined loggers, to System.err.</span>
+<span class="c1"># Default logging detail level for all instances of SimpleLogger.</span>
+<span class="c1"># Must be one of (&quot;trace&quot;, &quot;debug&quot;, &quot;info&quot;, &quot;warn&quot;, or &quot;error&quot;).</span>
+<span class="c1"># If not specified, defaults to &quot;info&quot;.</span>
+<span class="n">org</span><span class="o">.</span><span class="n">slf4j</span><span class="o">.</span><span class="n">simpleLogger</span><span class="o">.</span><span class="n">defaultLogLevel</span><span class="o">=</span><span class="n">debug</span>
+<span class="c1"># Set to true if you want the current date and time to be included in output messages.</span>
+<span class="c1"># Default is false, and will output the number of milliseconds elapsed since startup.</span>
+<span class="n">org</span><span class="o">.</span><span class="n">slf4j</span><span class="o">.</span><span class="n">simpleLogger</span><span class="o">.</span><span class="n">showDateTime</span><span class="o">=</span><span class="n">true</span>
+<span class="c1"># The date and time format to be used in the output messages.</span>
+<span class="c1"># The pattern describing the date and time format is the same that is used in java.text.SimpleDateFormat.</span>
+<span class="c1"># If the format is not specified or is invalid, the default format is used.</span>
+<span class="c1"># The default format is yyyy-MM-dd HH:mm:ss:SSS Z.</span>
+<span class="n">org</span><span class="o">.</span><span class="n">slf4j</span><span class="o">.</span><span class="n">simpleLogger</span><span class="o">.</span><span class="n">dateTimeFormat</span><span class="o">=</span><span class="n">yyyy</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">dd</span> <span class="n">HH</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span><span class="p">:</span><span class="n">SSS</span> <span class="n">Z</span>
+</pre></div>
+</div>
+<p>Finally, we need to start using the slf4j API in our classes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">static</span> <span class="n">org</span><span class="o">.</span><span class="n">slf4j</span><span class="o">.</span><span class="n">Logger</span> <span class="n">LOG</span> <span class="o">=</span> <span class="n">org</span><span class="o">.</span><span class="n">slf4j</span><span class="o">.</span><span class="n">LoggerFactory</span>
+<span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">AppViewController</span><span class="o">.</span><span class="n">class</span><span class="p">);</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">test</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">LOG</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;This is an error&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="using-the-log4j-api-with-slf4j">
+<h2>Using the log4j API with slf4j<a class="headerlink" href="#using-the-log4j-api-with-slf4j" title="Link to this heading">¶</a></h2>
+<p>While it is possible to use the log4j API with its original implementation, we do not recommend it, because it is much more complex than slf4j, and it requires a custom built version of the library.</p>
+<p>However, if you need to use a component that requires the log4j API, use the log4j  API wrapper of slf4j. We just need to add one more line to the <cite>build.gradle</cite> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">compile</span> <span class="s1">&#39;org.slf4j:log4j-over-slf4j:1.7.12&#39;</span>
+</pre></div>
+</div>
+<p>Now we can use the log4j API as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">log4j</span><span class="o">.</span><span class="n">Logger</span> <span class="n">Log</span> <span class="o">=</span> <span class="n">org</span><span class="o">.</span><span class="n">apache</span><span class="o">.</span><span class="n">log4j</span><span class="o">.</span><span class="n">Logger</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;AppViewController&quot;</span><span class="p">);</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">test</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">Log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<p>With the Multi-OS Engine (similar to Android) we have multiple options for logging in our app. You can decide whether to use the Android logger, slf4j or even the log4j APIs in your application.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../advanced/" class="btn btn-neutral float-left" title="Advanced Topics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../13_Troubleshooting/troubleshooting/" class="btn btn-neutral float-right" title="Troubleshooting tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>

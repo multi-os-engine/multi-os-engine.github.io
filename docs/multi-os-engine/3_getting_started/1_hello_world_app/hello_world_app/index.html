@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creating a Hello World App for Android and iOS Devices &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" />
+    <link rel="next" title="Multi-OS Engine Samples" href="../../2_moe_samples/MOE_samples/" />
+    <link rel="prev" title="Installation" href="../../1_installation/installation/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../Getting_Started/">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../0_prerequisites/prerequisites/">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../1_installation/installation/">Installation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Creating a Hello World App for Android and iOS Devices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overall-workflow">Overall Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-an-android-app-module">Creating an Android App Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-multi-os-engine-app-module">Creating a Multi-OS Engine App Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-common-module-for-android-and-ios">Creating a common module for Android and iOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-dependency-for-the-ios-module">Add a Dependency for the iOS module:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-dependency-for-the-android-module">Add a Dependency for the Android module:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-and-debugging-your-multi-os-engine-app">Running and Debugging Your Multi-OS Engine App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-and-debugging-multi-os-engine-app">Running and Debugging Multi-OS Engine App</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#building-ipa-to-deploy-app-to-appstore">Building IPA to Deploy App to AppStore</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../2_moe_samples/MOE_samples/">Multi-OS Engine Samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../3_remote_build/remote_build/">Remote Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../4_project_customization_via_gradle/project_customization_via_gradle/">Customizing Your Apple Xcode* Project using a Gradle* Script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../6_how_to_enable_javadoc/how_to_enable_javadoc/">Enabling Javadoc Docs for iOS API in IDEs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../7_porting/porting/">Porting an Android Application to Apple iOS Platform Using Multi-OS Engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../4_create_ui/create_ui/">Creating Your App’s User Interface (UI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../5_using_thirdparty/using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../6_natj/NatJ/">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../7_creating_db_app/creating_db_app/">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../9_game/game/">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../12_advanced/advanced/">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../Getting_Started/">Getting Started</a></li>
+      <li class="breadcrumb-item active">Creating a Hello World App for Android and iOS Devices</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/multi-os-engine/3_getting_started/1_hello_world_app/hello_world_app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creating-a-hello-world-app-for-android-and-ios-devices">
+<h1>Creating a Hello World App for Android and iOS Devices<a class="headerlink" href="#creating-a-hello-world-app-for-android-and-ios-devices" title="Link to this heading">¶</a></h1>
+<p>Contents:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#overall-workflow">Overall Workflow</a></p></li>
+<li><p><a class="reference internal" href="#creating-an-android-app-module">Creating an Android App Module</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-multi-os-engine-app-module">Creating a Multi-OS Engine App Module</a></p></li>
+<li><p><a class="reference internal" href="#creating-a-common-module-for-android-and-ios">Creating a Common Module for Android and iOS</a></p></li>
+<li><p><a class="reference internal" href="#running-and-debugging-multi-os-engine-app">Running and Debugging Multi-OS Engine App</a></p></li>
+<li><p><a class="reference internal" href="#building-ipa-to-deploy-app-to-appstore">Building IPA to Deploy App to AppStore</a></p></li>
+</ul>
+<p>This topic helps you create your first cross-platform app using the Intel’s Multi-OS Engine Technology Preview. It also helps you understand the concepts of Apple iOS* app development using the Multi-OS Engine.</p>
+<p>It shows you how to create a simple Hello World app for Android* and iOS devices that use shared common logic code that gets used by both app modules.</p>
+<section id="overall-workflow">
+<h2>Overall Workflow<a class="headerlink" href="#overall-workflow" title="Link to this heading">¶</a></h2>
+<img alt="../../../../_images/overallWorkflow.png" src="../../../../_images/overallWorkflow.png" />
+<p>An app created with the Multi-OS Engine consists of three modules:</p>
+<ul class="simple">
+<li><p>Android module - contains only Android specific code.</p></li>
+<li><p>iOS module - implements the functionality specific for your iOS app (that is mostly UI). The code accesses the native API through Objective-C*/Java bindings generated by the special tool called NatJGen. To learn how to use third-party native libraries for developing your iOS app, see the Using Third Party Native Libraries for iOS* topic.</p></li>
+<li><p>Common module - contains the shared logic that is common for the Android and iOS parts.</p></li>
+</ul>
+<p>This approach creates apps with the common logic code along with platform specific UI code.</p>
+<p>The workflow for creating an Multi-OS Engine app includes these steps:</p>
+<ol class="arabic simple">
+<li><p>Create an Android app module.</p></li>
+<li><p>Create a Multi-OS Engine app module, which is actually your iOS app.</p></li>
+<li><p>Create a common module that holds the common app logic for Android and iOS parts.</p></li>
+<li><p>Add the common module as a dependency for the Android and iOS app modules.</p></li>
+<li><p>Configure the Gradle* scripts.</p></li>
+<li><p>Build and launch the app.</p></li>
+</ol>
+</section>
+<section id="creating-an-android-app-module">
+<h2>Creating an Android App Module<a class="headerlink" href="#creating-an-android-app-module" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Launch Android Studio and create an Android project.</p></li>
+</ol>
+<img alt="../../../../_images/new_project.png" src="../../../../_images/new_project.png" />
+<ol class="arabic simple" start="2">
+<li><p>Enter the app name, company domain and choose a location where you want to save your project. Pay attention and feel free to revise the auto-generated placeholder package name (com.mycompany.myfirstapp) in lower case. Click Next.</p></li>
+<li><p>To just get started, simply proceed with the default settings by clicking Next.</p></li>
+<li><p>Configure your target device and API level settings. For this tutorial, simply proceed with the default settings by clicking Next.</p></li>
+<li><p>Choose Empty Activity in the Add an activity to Mobile window and click Next.</p></li>
+<li><p>In the Customize the Activity window, you may wish to leave the settings unchanged. Click Finish to accept the default configuration. Wait while your app is built as a new project.</p></li>
+<li><p>When it completes, Android Studio creates a new Android project. In the Project pane, notice the app module - this module is your Android app.</p></li>
+<li><p>You can now add a Multi-OS Engine module, which is actually your iOS app.</p></li>
+</ol>
+</section>
+<section id="creating-a-multi-os-engine-app-module">
+<h2>Creating a Multi-OS Engine App Module<a class="headerlink" href="#creating-a-multi-os-engine-app-module" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Right click anywhere inside the Project tab on the left side. This creates the module in the root of the Android project. Choose New and New Module.</p></li>
+</ol>
+<img alt="../../../../_images/add_module.png" src="../../../../_images/add_module.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<blockquote>
+<div><p>If you are using Android Studio and no “New Module” dialog popped up, make sure you did not install any Kotlin plugin update and use the Kotlin plugin bundled with the Android Studio. You could check this by openning the Plugins settings and see if there is Kotlin plugin under the “Downloaded” category. If so, uninstall it and restart the IDE to use the bundled version instead.</p>
+</div></blockquote>
+<img alt="../../../../_images/uninstall_kotlin.png" src="../../../../_images/uninstall_kotlin.png" />
+</div>
+<ol class="arabic simple" start="2">
+<li><p>There are six available templates:</p></li>
+</ol>
+<img alt="../../../../_images/modules.png" src="../../../../_images/modules.png" />
+<ul class="simple">
+<li><p>Master-Detail Application with storyboard template provides a starting point for a master-detail app. It provides a user interface configured with a navigation controller to display a list of items and also a split view on iPad devices.</p></li>
+<li><p>Single-View Application template provides a starting point for an app that uses a single view. It provides a view controller to manage the view, and a storyboard or nib file that contains the view.</p></li>
+<li><p>Game template provides a starting point for games.</p></li>
+</ul>
+<p>These templates mirror the standard Xcode templates for iOS and have the same names as the corresponding templates in Xcode. Using these templates, you can see how your Apple Objective-C* project migrates to a Multi-OS Engine solution: the plug-in replaces all Objective-C components with Java analogues when possible.</p>
+<p>Select the template which fits your needs (such as Single-View Application) and press Next.</p>
+<ol class="arabic simple" start="3">
+<li><p>In the next window, create an Xcode project. After you create the project you can open it in Xcode, for example, if you would like to use an Xcode storyboard to design your native user interface. Specify the Project Name (app name), Package Name (where your Java code belongs to), Organization Name and Identifier.</p></li>
+</ol>
+<img alt="../../../../_images/xcode_settings.png" src="../../../../_images/xcode_settings.png" />
+<ol class="arabic simple" start="4">
+<li><p>Click Next to configure the iOS module. Specify a Module name and review the Content root and Module file location. When you complete this, click Finish.</p></li>
+</ol>
+<img alt="../../../../_images/module.png" src="../../../../_images/module.png" />
+<p>5. Now you have created an iOS app in Android Studio. If Android Studio prompts you to synchronize the Gradle scripts, please do so.
+Multi-OS Engine plugin automatically creates the default run configuration. Click “run button” to run sample on simulator by default or click “debug” to run debugging.</p>
+</section>
+<section id="creating-a-common-module-for-android-and-ios">
+<h2>Creating a common module for Android and iOS<a class="headerlink" href="#creating-a-common-module-for-android-and-ios" title="Link to this heading">¶</a></h2>
+<p>This section describes how to create a Common module that holds app logic and adds it as a dependency to the iOS* and Android modules.</p>
+<p>Let’s create the Common module from the scratch. Right click in the left side of the Project tab to create the module in the root folder of the Android project. Then choose “New” and “Module”.</p>
+<img alt="../../../../_images/common_module.png" src="../../../../_images/common_module.png" />
+<p>Choose “Java Library” from modules list and click “Next”. Fill in the fields and click on “Finish” button</p>
+<img alt="../../../../_images/common_module2.png" src="../../../../_images/common_module2.png" />
+<p>Wait for the new module to be created including the Gradle synch.</p>
+<p>You can now add the common module as a dependency of the iOS and Android modules.</p>
+</section>
+<section id="add-a-dependency-for-the-ios-module">
+<h2>Add a Dependency for the iOS module:<a class="headerlink" href="#add-a-dependency-for-the-ios-module" title="Link to this heading">¶</a></h2>
+<p>Right click the iOS module and choose “Open Module Settings”. Choose “iOS” module in the Project Structure window. Click “+”” and choose “Module dependency”.</p>
+<img alt="../../../../_images/common_ios.png" src="../../../../_images/common_ios.png" />
+<p>Click the common module from the module list to add it as a dependency for the iOS module.</p>
+<img alt="../../../../_images/common_module3.png" src="../../../../_images/common_module3.png" />
+</section>
+<section id="add-a-dependency-for-the-android-module">
+<h2>Add a Dependency for the Android module:<a class="headerlink" href="#add-a-dependency-for-the-android-module" title="Link to this heading">¶</a></h2>
+<p>The steps are similar to the previous steps for the iOS module. The only difference is that in the Project structure window, you need to select the “Dependencies” tab.</p>
+<img alt="../../../../_images/common_module4.png" src="../../../../_images/common_module4.png" />
+</section>
+<section id="running-and-debugging-your-multi-os-engine-app">
+<h2>Running and Debugging Your Multi-OS Engine App<a class="headerlink" href="#running-and-debugging-your-multi-os-engine-app" title="Link to this heading">¶</a></h2>
+<p>You can run the app created with Multi-OS Engine on the simulator or a real device. To do this, create a run/debug configuration specific to the platform to run on.</p>
+<p>Creating Run/Debug Configurations:</p>
+<p>When you creates an Apple iOS app module, the Multi-OS Engine plug-in automatically creates the list of default run configurations. Click Select Run/Debug Configuration and select “Edit Configurations…” to create platform-specific configuration based on one of the default Multi-OS Engine configurations.</p>
+<img alt="../../../../_images/rundebug1.png" src="../../../../_images/rundebug1.png" />
+<p>Click “+” and choose “Multi-OS Engine iOS Application”</p>
+<img alt="../../../../_images/rundebug2.png" src="../../../../_images/rundebug2.png" />
+<p>Specify the configuration name. Also:</p>
+<p>Choose an available iOS SDK version.
+Choose the type of Simulator device or connected Device to run.
+Choose a debug port.</p>
+<p>For a real device:</p>
+<img alt="../../../../_images/rundebug3.png" src="../../../../_images/rundebug3.png" />
+<p>For the simulator:</p>
+<img alt="../../../../_images/rundebug4.png" src="../../../../_images/rundebug4.png" />
+</section>
+<section id="running-and-debugging-multi-os-engine-app">
+<h2>Running and Debugging Multi-OS Engine App<a class="headerlink" href="#running-and-debugging-multi-os-engine-app" title="Link to this heading">¶</a></h2>
+<p>Click Run to run or Debug to run debugging the app code on the simulator or a real device (if connected and configured).</p>
+<img alt="../../../../_images/run.png" src="../../../../_images/run.png" />
+</section>
+<section id="building-ipa-to-deploy-app-to-appstore">
+<h2>Building IPA to Deploy App to AppStore<a class="headerlink" href="#building-ipa-to-deploy-app-to-appstore" title="Link to this heading">¶</a></h2>
+<p>Building an IPA is currently possible from the command line using Gradle. In the Multi-OS Engine module execute the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./gradlew</span> <span class="pre">moeIpaBuild</span></code></p>
+<p>The IPA file will be created in the <code class="docutils literal notranslate"><span class="pre">build/</span></code> folder.</p>
+<p>For more information about the Multi-OS Engine Gradle plugin, please refer to the <a class="reference external" href="https://github.com/multi-os-engine/moe-plugin-gradle">plugin documentation</a>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../1_installation/installation/" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../2_moe_samples/MOE_samples/" class="btn btn-neutral float-right" title="Multi-OS Engine Samples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>

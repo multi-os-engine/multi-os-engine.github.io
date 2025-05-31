@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creating UIs Using Xcode Storyboards &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" />
+    <link rel="next" title="Using Third Party Native Libraries for iOS*" href="../../../5_using_thirdparty/using_thirdparty/" />
+    <link rel="prev" title="Creating Your App’s User Interface (UI)" href="../../create_ui/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../3_getting_started/Getting_Started/">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../create_ui/">Creating Your App’s User Interface (UI)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Creating UIs Using Xcode Storyboards</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-stock-android-application">1. Create a Stock Android Application</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-new-multi-os-engine-module">2. Create a New Multi-OS Engine Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-unneeded-files">3. Delete Unneeded Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-the-xcode-project">4. Edit the Xcode Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-view-controller-and-storyboard">5. Create the View Controller and Storyboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-the-storyboard">6. Edit the Storyboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-ui-elements">7. Add UI Elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#binding-the-ui-elements-to-the-controller">8. Binding the UI Elements to the Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-the-target">9. Edit the Target</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-the-java-code">10. Editing the Java Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#running-the-application">11. Running the Application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../5_using_thirdparty/using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../6_natj/NatJ/">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../7_creating_db_app/creating_db_app/">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../9_game/game/">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../12_advanced/advanced/">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../create_ui/">Creating Your App’s User Interface (UI)</a></li>
+      <li class="breadcrumb-item active">Creating UIs Using Xcode Storyboards</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/multi-os-engine/4_create_ui/2_with_storyboard/with_storyboard.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="creating-uis-using-xcode-storyboards">
+<h1>Creating UIs Using Xcode Storyboards<a class="headerlink" href="#creating-uis-using-xcode-storyboards" title="Link to this heading">¶</a></h1>
+<p>For complex UIs you can use Xcode’s Interface Builder for designing and Multi-OS Engine for generating the Java* bindings in Android Studio*. This topic demonstrates how to use this approach for building a sample Quiz App.</p>
+<section id="create-a-stock-android-application">
+<h2>1. Create a Stock Android Application<a class="headerlink" href="#create-a-stock-android-application" title="Link to this heading">¶</a></h2>
+<img alt="../../../../_images/1-1.png" src="../../../../_images/1-1.png" />
+</section>
+<section id="create-a-new-multi-os-engine-module">
+<h2>2. Create a New Multi-OS Engine Module<a class="headerlink" href="#create-a-new-multi-os-engine-module" title="Link to this heading">¶</a></h2>
+<p>Right click on the Android project and select New &gt; Multi-OS Engine Module to create a new iOS* module.</p>
+<img alt="../../../../_images/2-1.png" src="../../../../_images/2-1.png" />
+<p>Select “Single View Application with Storyboard” in the “Multi-OS Engine” category.</p>
+<img alt="../../../../_images/2-2.png" src="../../../../_images/2-2.png" />
+<p>Fill out the fields and select “Keep Xcode Project”.</p>
+<img alt="../../../../_images/2-3.png" src="../../../../_images/2-3.png" />
+<p>Change the module name and paths to use “ios”.</p>
+<img alt="../../../../_images/2-4.png" src="../../../../_images/2-4.png" />
+</section>
+<section id="delete-unneeded-files">
+<h2>3. Delete Unneeded Files<a class="headerlink" href="#delete-unneeded-files" title="Link to this heading">¶</a></h2>
+<p>We will create the view controller and the storyboard from scratch, so let’s delete the generated ones.
+Select the “ui” package and “MainUI.storyboard” file and delete them.</p>
+<img alt="../../../../_images/3-1.png" src="../../../../_images/3-1.png" />
+<p>Open the “Main” class and remove the incorrect import of AppViewController.</p>
+<img alt="../../../../_images/3-2.png" src="../../../../_images/3-2.png" />
+</section>
+<section id="edit-the-xcode-project">
+<h2>4. Edit the Xcode Project<a class="headerlink" href="#edit-the-xcode-project" title="Link to this heading">¶</a></h2>
+<p>Change your view to “Project” in Android Studio.</p>
+<img alt="../../../../_images/4-1.png" src="../../../../_images/4-1.png" />
+<p>Right-click on the “ios” module and select “Multi-OS Engine Actions” &gt; “Open Project in Xcode”.</p>
+<img alt="../../../../_images/5-1.png" src="../../../../_images/5-1.png" />
+<p>Delete the remaining reference to the removed “MainUI.storyboard” file in Xcode.</p>
+<img alt="../../../../_images/6-1.png" src="../../../../_images/6-1.png" />
+</section>
+<section id="create-the-view-controller-and-storyboard">
+<h2>5. Create the View Controller and Storyboard<a class="headerlink" href="#create-the-view-controller-and-storyboard" title="Link to this heading">¶</a></h2>
+<p>Right-click on the “QuizApp” group and select “New File…”.</p>
+<img alt="../../../../_images/6-2.png" src="../../../../_images/6-2.png" />
+<p>Select “Cocoa Touch Class” in the “iOS” &gt; “Source” category.</p>
+<img alt="../../../../_images/6-3.png" src="../../../../_images/6-3.png" />
+<p>Rename the class to “MyViewController” and make it a subclass of “UIViewController”.</p>
+<img alt="../../../../_images/6-4.png" src="../../../../_images/6-4.png" />
+<p>Save in the Xcode target’s (QuizApp) directory. (This should be the default save location)</p>
+<img alt="../../../../_images/6-5.png" src="../../../../_images/6-5.png" />
+<p>Create another new file, but now a “Storyboard” from the “iOS” &gt; “User Interface” category.</p>
+<img alt="../../../../_images/6-6.png" src="../../../../_images/6-6.png" />
+<p>Save it as “Storyboard” to the same location.</p>
+<img alt="../../../../_images/6-7.png" src="../../../../_images/6-7.png" />
+</section>
+<section id="edit-the-storyboard">
+<h2>6. Edit the Storyboard<a class="headerlink" href="#edit-the-storyboard" title="Link to this heading">¶</a></h2>
+<p>Open up the Storyboard file for editing and drag a “View Controller” into the big empty editor area.</p>
+<img alt="../../../../_images/7-1.png" src="../../../../_images/7-1.png" />
+<p>In the Attributes inspector check in the “Is Initial View Controller” checkbox.</p>
+<img alt="../../../../_images/7-2.png" src="../../../../_images/7-2.png" />
+<p>In the Identity inspector change the view controller’s class to MyViewController.</p>
+<img alt="../../../../_images/7-3.png" src="../../../../_images/7-3.png" />
+</section>
+<section id="add-ui-elements">
+<h2>7. Add UI Elements<a class="headerlink" href="#add-ui-elements" title="Link to this heading">¶</a></h2>
+<p>Add two labels by searching for “label” and dragging them onto the view controller’s view.</p>
+<img alt="../../../../_images/8-1.png" src="../../../../_images/8-1.png" />
+<p>Do the same for adding two buttons.</p>
+<img alt="../../../../_images/8-2.png" src="../../../../_images/8-2.png" />
+<p>Edit the controls’ text by double-clicking on them and rearrange them by dragging them to their final location.</p>
+<img alt="../../../../_images/8-3.png" src="../../../../_images/8-3.png" />
+<p>Select the view controller’s view and in the “Resolve Auto Layout Issues” menu select “Add Missing Constraints”.</p>
+<img alt="../../../../_images/8-4.png" src="../../../../_images/8-4.png" />
+</section>
+<section id="binding-the-ui-elements-to-the-controller">
+<h2>8. Binding the UI Elements to the Controller<a class="headerlink" href="#binding-the-ui-elements-to-the-controller" title="Link to this heading">¶</a></h2>
+<p>Open up “MyViewController.h” in the Assistant Editor and <cite>ctrl + Drag</cite> the controls from the storyboard editor into the MyViewController’s source code.</p>
+<img alt="../../../../_images/9-1.png" src="../../../../_images/9-1.png" />
+<p>Add outlets for the labels, one as <cite>questionLabel</cite>, the other as <cite>answerLabel</cite>.</p>
+<img alt="../../../../_images/9-2.png" src="../../../../_images/9-2.png" />
+<p>Add actions for the buttons, one as <cite>showQuestion</cite>, the other as <cite>showAnswer</cite>.</p>
+<img alt="../../../../_images/9-3.png" src="../../../../_images/9-3.png" />
+<p>The result should look like this.</p>
+<img alt="../../../../_images/9-4.png" src="../../../../_images/9-4.png" />
+</section>
+<section id="edit-the-target">
+<h2>9. Edit the Target<a class="headerlink" href="#edit-the-target" title="Link to this heading">¶</a></h2>
+<p>Select the “QuizApp” project in the Project navigator and “QuizApp” in the Targets listing. In the “General” tab set the Version, Build and Main Interface fields.</p>
+<img alt="../../../../_images/10-1.png" src="../../../../_images/10-1.png" />
+</section>
+<section id="editing-the-java-code">
+<h2>10. Editing the Java Code<a class="headerlink" href="#editing-the-java-code" title="Link to this heading">¶</a></h2>
+<p>Go back to Android Studio, select your MyViewController.h, right-click on it and select “Multi-OS Engine Actions” &gt; “Synchronize to Java”.</p>
+<img alt="../../../../_images/11-1.png" src="../../../../_images/11-1.png" />
+<p>It will ask for a package to generate the bindings into.</p>
+<img alt="../../../../_images/11-2.png" src="../../../../_images/11-2.png" />
+<p>Add a new Java class called QuizDataSet.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">QuizDataSet</span> <span class="p">{</span>
+        <span class="n">private</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">questions</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+        <span class="n">private</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">answers</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+        <span class="n">public</span> <span class="n">QuizDataSet</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">questions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;What is the State Capital of California?&quot;</span><span class="p">);</span>
+                <span class="n">questions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;What is the capital city of New York&quot;</span><span class="p">);</span>
+                <span class="n">questions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Which state is the Niagara Falls located in?&quot;</span><span class="p">);</span>
+
+                <span class="n">answers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Sacramento&quot;</span><span class="p">);</span>
+                <span class="n">answers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;New York City&quot;</span><span class="p">);</span>
+                <span class="n">answers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;New York&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">public</span> <span class="n">String</span> <span class="n">getQuestion</span><span class="p">(</span><span class="nb">int</span> <span class="n">idx</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">questions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">public</span> <span class="n">String</span> <span class="n">getAnswer</span><span class="p">(</span><span class="nb">int</span> <span class="n">idx</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">answers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">idx</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="n">public</span> <span class="nb">int</span> <span class="n">getSize</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">questions</span><span class="o">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../../../../_images/12-1.png" src="../../../../_images/12-1.png" />
+<p>Open up your MyViewController class for editing. You should see the two actions “showQuestion” and “showAnswer”.</p>
+<img alt="../../../../_images/13-1.png" src="../../../../_images/13-1.png" />
+<p>Remove the <cite>&#64;Generated</cite> annotation and the <cite>native</cite> keyword. Change the code to the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">private</span> <span class="n">QuizDataSet</span> <span class="n">quiz</span> <span class="o">=</span> <span class="n">new</span> <span class="n">QuizDataSet</span><span class="p">();</span>
+<span class="n">private</span> <span class="nb">int</span> <span class="n">quizIdx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nd">@Selector</span><span class="p">(</span><span class="s2">&quot;showAnswer:&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">showAnswer</span><span class="p">(</span><span class="n">UIButton</span> <span class="n">sender</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">answerLabel</span><span class="p">()</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">quiz</span><span class="o">.</span><span class="n">getAnswer</span><span class="p">(</span><span class="n">quizIdx</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nd">@Selector</span><span class="p">(</span><span class="s2">&quot;showQuestion:&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="n">void</span> <span class="n">showQuestion</span><span class="p">(</span><span class="n">UIButton</span> <span class="n">sender</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">quizIdx</span> <span class="o">=</span> <span class="p">(</span><span class="n">quizIdx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">quiz</span><span class="o">.</span><span class="n">getSize</span><span class="p">();</span>
+        <span class="n">questionLabel</span><span class="p">()</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">quiz</span><span class="o">.</span><span class="n">getQuestion</span><span class="p">(</span><span class="n">quizIdx</span><span class="p">));</span>
+        <span class="n">answerLabel</span><span class="p">()</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;???&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../../../../_images/14-1.png" src="../../../../_images/14-1.png" />
+<p>Go to the top of the file and change the annotations as follows:</p>
+<img alt="../../../../_images/14-2.png" src="../../../../_images/14-2.png" />
+</section>
+<section id="running-the-application">
+<h2>11. Running the Application<a class="headerlink" href="#running-the-application" title="Link to this heading">¶</a></h2>
+<p>Select the ios module’s run configurations and hit Run.</p>
+<img alt="../../../../_images/15-1.png" src="../../../../_images/15-1.png" />
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../create_ui/" class="btn btn-neutral float-left" title="Creating Your App’s User Interface (UI)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../5_using_thirdparty/using_thirdparty/" class="btn btn-neutral float-right" title="Using Third Party Native Libraries for iOS*" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>

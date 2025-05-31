@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generating Java* Bindings &mdash; Multi-OS Engine Documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" href="../../../../../_static/theme.css" type="text/css" />
+
+  
+      <script src="../../../../../_static/documentation_options.js?v=cebfb12b"></script>
+      <script src="../../../../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../../search/" />
+    <link rel="next" title="Generating JAR Files from the Command Line" href="../../2_jarF/jarF/" />
+    <link rel="prev" title="Using WrapNatJGen from the Command-Line Interface" href="../../wrap_cmd/" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75001976-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../" class="icon icon-home">
+            Multi-OS Engine Documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../MultiOSEngine/">Multi-OS Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../1_Overview/Overview/">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../2_Introduction/Introduction/">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../3_getting_started/Getting_Started/">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../4_create_ui/create_ui/">Creating Your App’s User Interface (UI)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../using_thirdparty/">Using Third Party Native Libraries for iOS*</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../wrap_cmd/">Using WrapNatJGen from the Command-Line Interface</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Generating Java* Bindings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../2_jarF/jarF/">Generating JAR Files from the Command Line</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../2_wrap_android/wrap_android/">Using WrapNatJGen from the Android* Studio Context Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../3_troubleshooting/troubleshooting/">Troubleshooting Compilation Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../6_natj/NatJ/">Nat/J library for Java to native binding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../7_creating_db_app/creating_db_app/">Creating a Database App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../8_accessWebServices/accessWebServices/">Accessing Web Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../9_game/game/">Creating a Game App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../12_advanced/advanced/">Advanced Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../13_Troubleshooting/troubleshooting/">Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../">Multi-OS Engine Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../MultiOSEngine/">Multi-OS Engine</a></li>
+          <li class="breadcrumb-item"><a href="../../../using_thirdparty/">Using Third Party Native Libraries for iOS*</a></li>
+          <li class="breadcrumb-item"><a href="../../wrap_cmd/">Using WrapNatJGen from the Command-Line Interface</a></li>
+      <li class="breadcrumb-item active">Generating Java* Bindings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/multi-os-engine/5_using_thirdparty/1_wrap_cmd/1_bindings/bindings.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generating-java-bindings">
+<h1>Generating Java* Bindings<a class="headerlink" href="#generating-java-bindings" title="Link to this heading">¶</a></h1>
+<p>The WrapNatJGen tool provides the following options for generating Java* bindings:</p>
+<ul class="simple">
+<li><p>Generate Java bindings for native headers that you will compile with your project. In this case, all methods in the resulting Java files will be marked as native.</p></li>
+<li><p>Use native headers as prototypes to generate bindings that will implement all the native methods in Java.  Use this option if you want to implement your code in Java.</p></li>
+</ul>
+<section id="generating-java-bindings-for-native-headers">
+<h2>Generating Java Bindings for Native Headers<a class="headerlink" href="#generating-java-bindings-for-native-headers" title="Link to this heading">¶</a></h2>
+<p>To generate Java bindings for native headers, use the following command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ java -jar wrapnatjgen.jar --path-to-project &lt;&lt;em&gt;project-dir&lt;/em&gt;&gt; [--package-name &lt;&lt;em&gt;package-name&lt;/em&gt;&gt;] --headers &lt;&lt;em&gt;headers-dir&lt;/em&gt;&gt;
+</pre></div>
+</div>
+<p>where :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--path-to-project</span> <span class="pre">&lt;project-dir&gt;</span></code> : Specifies the path to the output directory that will contain the generated Java bindings under the <code class="docutils literal notranslate"><span class="pre">&lt;project-dir&gt;/src/main/java/&lt;package-name&gt;</span></code> subdirectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--package-name</span> <span class="pre">&lt;package-name&gt;</span></code> : Optional. Sets the package name for the generated files. By default, the package name is org.moe.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--headers</span> <span class="pre">&lt;headers-dir&gt;</span></code> : Specifies the path to the native header files for which Java bindings will be generated. You can specify the path to a single header, a directory containing all the headers for binding generation, or paths to several headers or directories separated by colons.</p></li>
+</ol>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">wrapnatjgen</span><span class="o">.</span><span class="n">jar</span> <span class="o">--</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">project</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span>  <span class="o">--</span><span class="n">headers</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span> <span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">xcode</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">my_header</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>This example generates Java bindings for my_header.h and places them into the /User/project/TestProject/src/main/java/org/moe directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">wrapnatjgen</span><span class="o">.</span><span class="n">jar</span> <span class="o">--</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">project</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span>  <span class="o">--</span><span class="n">headers</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">xcode</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">my_first_header</span><span class="o">.</span><span class="n">h</span><span class="p">:</span><span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">xcode</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">my_second_header</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>This example generates Java bindings for my_first_header.h and  my_second_header.h  and places them into the /User/project/TestProject/src/main/java/org/moe directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">wrapnatjgen</span><span class="o">.</span><span class="n">jar</span> <span class="o">--</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">project</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span>  <span class="o">--</span><span class="n">headers</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">xcode</span><span class="o">/</span><span class="n">ios</span>
+</pre></div>
+</div>
+<p>This example generates Java bindings for all headers located in the /User/project/TestProject/ios/xcode/ios folder and places the generated files into the /User/project/TestProject/src/main/java/org/moe directory.</p>
+</section>
+<section id="generating-java-bindings-based-on-prototypes">
+<h2>Generating Java* Bindings Based on Prototypes<a class="headerlink" href="#generating-java-bindings-based-on-prototypes" title="Link to this heading">¶</a></h2>
+<p>To generate Java bindings based on prototype native headers, use the following command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">wrapnatjgen</span><span class="o">.</span><span class="n">jar</span>  <span class="o">--</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">project</span> <span class="o">&lt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">project</span><span class="o">-</span><span class="nb">dir</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&gt;</span> <span class="p">[</span><span class="o">--</span><span class="n">package</span><span class="o">-</span><span class="n">name</span> <span class="o">&lt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">package</span><span class="o">-</span><span class="n">name</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&gt;</span><span class="p">]</span>  <span class="o">--</span><span class="n">headers</span> <span class="o">&lt;&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">headers</span><span class="o">-</span><span class="n">path</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;&gt;</span> <span class="o">--</span><span class="n">create</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">prototype</span>
+</pre></div>
+</div>
+<p>where :</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--path-to-project</span> <span class="pre">&lt;project-dir&gt;</span></code> : Specifies the path to the output directory that will contain the generated Java bindings under the &lt;project-dir&gt;/src/main/java/&lt;package-name&gt; subdirectory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--package-name</span> <span class="pre">&lt;package-name&gt;</span></code> : Optional. Sets the package name for the generated files. By default, the package name is org.moe.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--headers</span> <span class="pre">&lt;headers-path&gt;</span></code> : Specifies the path to the native header files for which Java bindings will be generated. You can specify the path to a single header, a directory containing all the headers for binding generation, or paths to several headers or directories separated by colons.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--create-from-prototype</span></code> : Indicates that the specified header files should be treated as prototypes. Use this option if you want to implement your code in Java.</p></li>
+</ol>
+</section>
+<section id="id1">
+<h2>Examples:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">wrapnatjgen</span><span class="o">.</span><span class="n">jar</span> <span class="o">--</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">project</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span>  <span class="o">--</span><span class="n">headers</span> <span class="o">/</span><span class="n">User</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">TestProject</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">xcode</span><span class="o">/</span><span class="n">ios</span><span class="o">/</span><span class="n">my_header</span><span class="o">.</span><span class="n">h</span> <span class="o">--</span><span class="n">create</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="n">prototype</span>
+</pre></div>
+</div>
+<p>This example generates a Java implementation of the native methods in the my_header.h and places the resulting files into the  /User/project/TestProject/src/main/java/org/moe directory.</p>
+<p>$ java -jar wrapnatjgen.jar –path-to-project /User/project/TestProject –package-name ios.c –headers /User/project/TestProject/ios/xcode/ios –create-from-prototype</p>
+<p>This example generates a Java implementation of the native methods in the header files located in the /User/project/TestProject/ios/xcode/ios folder and places the resulting files into the  /User/project/TestProject/src/main/java/ios/c directory.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../wrap_cmd/" class="btn btn-neutral float-left" title="Using WrapNatJGen from the Command-Line Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../2_jarF/jarF/" class="btn btn-neutral float-right" title="Generating JAR Files from the Command Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Intel Corporation, Migeran &amp; Multi-OS Engine Community.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <header>
+  <div class="header__container">
+    <a href="http://doc.multi-os-engine.org/" class="header__logo">
+      <img width="176" src="../../../../../_static/moelogo-02.png">
+    </a>
+    <div class="links__icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links">
+      
+        <li><a href="https://multi-os-engine.org/">Home</a></li>
+        <li><a href="https://multi-os-engine.org/features/">Features</a></li>
+        <li><a href="https://doc.multi-os-engine.org">Docs</a></li>
+        <li><a href="https://multi-os-engine.org/blog/">Blog</a></li>
+        <li><a href="https://multi-os-engine.org/support/">Support</a></li>
+        <li><a href="https://discuss.multi-os-engine.org">Forum</a></li>
+        <li><a href="https://discord.gg/m5t3qNXTWj">Discord</a></li>
+        <li><a href="https://github.com/multi-os-engine/multi-os-engine">GitHub</a></li>
+    </ul>
+  </div>
+</header>
+
+
+</body>
+</html>
