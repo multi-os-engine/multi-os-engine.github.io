@@ -16,8 +16,4 @@ needhelp:
 
 ## Community Support
 
-Our [Community Forum](https://discuss.multi-os-engine.org) is the best place to ask for help or discuss the features of the Multi-OS Engine.
-
-## Commercial Support
-
-{% include feature_row id="needhelp" type="center" %}
+Our [Community Forum](https://discuss.multi-os-engine.org) or [Discord Server](https://discord.gg/m5t3qNXTWj) is the best place to ask for help or discuss the features of the Multi-OS Engine.
