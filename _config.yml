@@ -98,6 +98,10 @@ include:
   - .htaccess
   - _pages
   - _blogposts
+  - _downloads
+  - _images
+  - _sources
+  - _static
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
